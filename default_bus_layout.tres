@@ -1,0 +1,42 @@
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://chethpx5en51g"]
+
+[sub_resource type="AudioEffectEQ10" id="AudioEffectEQ10_vq4ow"]
+resource_name = "EQ10"
+
+[sub_resource type="AudioEffectEQ21" id="AudioEffectEQ21_kdxf4"]
+resource_name = "EQ21"
+
+[sub_resource type="AudioEffectEQ6" id="AudioEffectEQ6_djgal"]
+resource_name = "EQ6"
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_4kb8a"]
+resource_name = "Limiter"
+
+[resource]
+bus/0/volume_db = -1.51925
+bus/0/effect/0/effect = SubResource("AudioEffectEQ10_vq4ow")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectEQ21_kdxf4")
+bus/0/effect/1/enabled = false
+bus/0/effect/2/effect = SubResource("AudioEffectEQ6_djgal")
+bus/0/effect/2/enabled = false
+bus/0/effect/3/effect = SubResource("AudioEffectLimiter_4kb8a")
+bus/0/effect/3/enabled = false
+bus/1/name = &"Sfx"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -1.51925
+bus/1/send = &"Master"
+bus/2/name = &"Music"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0694828
+bus/2/send = &"Master"
+bus/3/name = &"Slide"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0672607
+bus/3/send = &"Sfx"

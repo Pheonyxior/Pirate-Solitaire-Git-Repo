@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5o8p6j404jy4"]
+
+[ext_resource type="Texture2D" uid="uid://x6mckh0ri4yr" path="res://Sprites/cards/Pirate Pirate Card.png" id="1_1q0fb"]
+[ext_resource type="Script" path="res://Scripts/Card.gd" id="1_daja7"]
+
+[node name="Card" type="Sprite2D"]
+z_index = 10
+texture_filter = 1
+texture = ExtResource("1_1q0fb")
+script = ExtResource("1_daja7")
+_highlight_color = Color(1.55, 1.55, 1.4, 1)

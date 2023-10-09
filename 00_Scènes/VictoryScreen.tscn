@@ -1,0 +1,90 @@
+[gd_scene load_steps=18 format=3 uid="uid://ctd27n5t2nuwm"]
+
+[ext_resource type="Texture2D" uid="uid://cufye6kpkepnt" path="res://Sprites/Victory Sprite.png" id="1_g6iyl"]
+[ext_resource type="Script" path="res://Scripts/VictorySprite.gd" id="2_yae0o"]
+[ext_resource type="Texture2D" uid="uid://ccgip43gciqrr" path="res://Sprites/eye/SkullKing Eye Thin Anim1.png" id="3_0ffkk"]
+[ext_resource type="Texture2D" uid="uid://movavcpbnlgt" path="res://Sprites/eye/SkullKing Eye Thin Anim2.png" id="4_gk7p1"]
+[ext_resource type="Texture2D" uid="uid://c8ihwe3g2eow6" path="res://Sprites/eye/SkullKing Eye Thin Anim3.png" id="5_d3fr4"]
+[ext_resource type="Texture2D" uid="uid://evf1vhd0fv5a" path="res://Sprites/eye/SkullKing Eye Thin Anim4.png" id="6_72bev"]
+[ext_resource type="Texture2D" uid="uid://bgytkt6c4gvvo" path="res://Sprites/eye/SkullKing Eye Thin Anim5.png" id="7_l73kr"]
+[ext_resource type="Texture2D" uid="uid://bauf5qvkfmdot" path="res://Sprites/eye/SkullKing Eye Thin Anim6.png" id="8_q84wv"]
+[ext_resource type="Texture2D" uid="uid://1c07l4ynipu" path="res://Sprites/eye/SkullKing Eye Thin Anim7.png" id="9_q5dl7"]
+[ext_resource type="Texture2D" uid="uid://b55cy85jyecmh" path="res://Sprites/eye/SkullKing Eye Thin Anim8.png" id="10_hb3r3"]
+[ext_resource type="Texture2D" uid="uid://dk5qufylwma6n" path="res://Sprites/eye/SkullKing Eye Thin Anim9.png" id="11_pserf"]
+[ext_resource type="Texture2D" uid="uid://c5f0ee46rqmeh" path="res://Sprites/eye/SkullKing Eye Thin Anim10.png" id="12_p0knm"]
+[ext_resource type="Texture2D" uid="uid://dgl1aewj2j86a" path="res://Sprites/eye/SkullKing Eye Thin Anim11.png" id="13_2bpkb"]
+[ext_resource type="Texture2D" uid="uid://dcl0jxtxubkso" path="res://Sprites/eye/SkullKing Eye Thin Anim12.png" id="14_4r10v"]
+[ext_resource type="Texture2D" uid="uid://bacelgs3o5xxu" path="res://Sprites/eye/SkullKing Eye Thin Anim13.png" id="15_cidu0"]
+[ext_resource type="AudioStream" uid="uid://cb42ibcy8e0br" path="res://Sounds/Pirate solitaire Jingle victoire.mp3" id="16_2tmxd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_307xs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0ffkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gk7p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d3fr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_72bev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l73kr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q84wv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q5dl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hb3r3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pserf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_p0knm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2bpkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4r10v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_cidu0")
+}],
+"loop": false,
+"name": &"shine",
+"speed": 10.0
+}]
+
+[node name="VictoryScreen" type="Node2D"]
+texture_filter = 1
+
+[node name="Victory sprite" type="Sprite2D" parent="."]
+modulate = Color(0.960784, 0.960784, 0.960784, 1)
+position = Vector2(110, 114)
+texture = ExtResource("1_g6iyl")
+offset = Vector2(0, -10)
+region_enabled = true
+region_rect = Rect2(0, 0, 116, 82)
+script = ExtResource("2_yae0o")
+_anim_duration = 0.8
+_start_delay = 0.2
+
+[node name="Eye" type="AnimatedSprite2D" parent="Victory sprite"]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_307xs")
+animation = &"shine"
+centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Victory sprite"]
+stream = ExtResource("16_2tmxd")
+volume_db = -12.0
+bus = &"Sfx"

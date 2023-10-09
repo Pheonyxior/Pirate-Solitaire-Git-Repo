@@ -1,0 +1,877 @@
+[gd_scene load_steps=38 format=3 uid="uid://hb8k5w83n6v7"]
+
+[ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="1_fkwdd"]
+[ext_resource type="Texture2D" uid="uid://7cyu7ah3j2rv" path="res://Sprites/UI/tuto border.png" id="2_5f45k"]
+[ext_resource type="PackedScene" uid="uid://cppxqvqmd0gtw" path="res://00_Scènes/Slot.tscn" id="3_8rkve"]
+[ext_resource type="Texture2D" uid="uid://bql2cvohfqnxp" path="res://Sprites/cards/9Whl Pirate Card.png" id="4_7fp8c"]
+[ext_resource type="Texture2D" uid="uid://canw1ibbx5nsl" path="res://Sprites/cards/9Shrk Pirate Card.png" id="6_ea16s"]
+[ext_resource type="Texture2D" uid="uid://dvtti2mce3wx2" path="res://Sprites/cards/9Seag Pirate Card.png" id="7_11dck"]
+[ext_resource type="Texture2D" uid="uid://dkjaoo734nxnk" path="res://Sprites/cards/Mobydick Pirate Card.png" id="8_idvo7"]
+[ext_resource type="Texture2D" uid="uid://hwhciuqviqsh" path="res://Sprites/cards/Kraken Pirate Card.png" id="9_i0s6j"]
+[ext_resource type="Texture2D" uid="uid://cvatjyv36il3p" path="res://Sprites/cards/Fregate Pirate Card.png" id="10_utk5q"]
+[ext_resource type="Texture2D" uid="uid://cukom7fbqt45j" path="res://Sprites/cards/8Seag Pirate Card.png" id="11_8j3aa"]
+[ext_resource type="Texture2D" uid="uid://c6qjn0uabcojt" path="res://Sprites/cards/7Shrk Pirate Card.png" id="12_gtypu"]
+[ext_resource type="Texture2D" uid="uid://ygx4wuwkgeq6" path="res://Sprites/cards/6Seag Pirate Card.png" id="13_js4ou"]
+[ext_resource type="Texture2D" uid="uid://doyh3ewwtqmju" path="res://Sprites/cards/5Whl Pirate Card.png" id="14_6tejk"]
+[ext_resource type="Texture2D" uid="uid://ch46suomhimh6" path="res://Sprites/cards/4Shrk Pirate Card.png" id="15_1s1cc"]
+[ext_resource type="Texture2D" uid="uid://b0o870oerwgok" path="res://Sprites/cards/3Seag Pirate Card.png" id="16_o2wqu"]
+[ext_resource type="Texture2D" uid="uid://x6mckh0ri4yr" path="res://Sprites/cards/Pirate Pirate Card.png" id="17_b470i"]
+[ext_resource type="Texture2D" uid="uid://buq7jngnjmf6f" path="res://Sprites/Whl Back.png" id="17_uptgc"]
+[ext_resource type="Texture2D" uid="uid://cb43n5kr7uufh" path="res://Sprites/Shrk Back.png" id="18_nb347"]
+[ext_resource type="Texture2D" uid="uid://ttkrb13djcnl" path="res://Sprites/Pirate Face Pirate Cardx2.png" id="18_rjihr"]
+[ext_resource type="Texture2D" uid="uid://ct8icimogph8t" path="res://Sprites/Mobydick Pirate Cardx2.png" id="19_p7df4"]
+[ext_resource type="Texture2D" uid="uid://nx6fd3o02agn" path="res://Sprites/cards/1Seag Pirate Card.png" id="19_rtr8t"]
+[ext_resource type="Texture2D" uid="uid://ckiu3elpn3fpq" path="res://Sprites/Seag Back.png" id="19_t6vx4"]
+[ext_resource type="Texture2D" uid="uid://boack42c2v2y4" path="res://Sprites/cards/1Shrk Pirate Card.png" id="20_iyogy"]
+[ext_resource type="Texture2D" uid="uid://d4drdockk66g" path="res://Sprites/UI/side_arrow.png" id="20_ry4mo"]
+[ext_resource type="Texture2D" uid="uid://dim8m3blgnlls" path="res://Sprites/UI/Touch_icon_pixel.png" id="21_py1rn"]
+[ext_resource type="Texture2D" uid="uid://dhrtwn5083uht" path="res://Sprites/cards/1Whl Pirate Card.png" id="21_yfbbs"]
+[ext_resource type="Texture2D" uid="uid://dxsd4nkt787fx" path="res://Sprites/UI/Mobydick_Button_Light.png" id="22_1mpjt"]
+[ext_resource type="Texture2D" uid="uid://b7ih2s8jy2l1d" path="res://Sprites/cards/2Shrk Pirate Card.png" id="22_jgtsl"]
+[ext_resource type="Texture2D" uid="uid://e3ju77kdf1oa" path="res://Sprites/cards/2Whl Pirate Card.png" id="23_0yd4x"]
+[ext_resource type="Texture2D" uid="uid://cs3gnekih50xw" path="res://Sprites/cards/6Shrk Pirate Card.png" id="24_5kddy"]
+[ext_resource type="Texture2D" uid="uid://dosjrmqgk1anv" path="res://Sprites/UI/ok_icon.png" id="24_awc2k"]
+[ext_resource type="Texture2D" uid="uid://de0q8upuwavkr" path="res://Sprites/cards/3Shrk Pirate Card.png" id="24_cql4v"]
+[ext_resource type="Texture2D" uid="uid://bb8hsyqmiw85g" path="res://Sprites/UI/Mobydick_Button_Highlight.png" id="24_qbgci"]
+[ext_resource type="Texture2D" uid="uid://b7tu78wuhj02k" path="res://Sprites/UI/close_button.png" id="24_u8spm"]
+[ext_resource type="Texture2D" uid="uid://brmghklv8l31q" path="res://Sprites/UI/x_icon.png" id="25_t4fa0"]
+[ext_resource type="Texture2D" uid="uid://c83pik8iol0n7" path="res://Sprites/cards/3Whl Pirate Card.png" id="26_6d0q7"]
+[ext_resource type="Texture2D" uid="uid://ceryqka6hewh8" path="res://Sprites/cards/2Seag Pirate Card.png" id="27_o0or2"]
+
+[node name="Tutorial" type="Control" node_paths=PackedStringArray("_tutorial_parts")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 220.0
+offset_bottom = 150.0
+script = ExtResource("1_fkwdd")
+_tutorial_parts = [NodePath("fond/part1"), NodePath("fond/part2"), NodePath("fond/part3"), NodePath("fond/part4"), NodePath("fond/part5"), NodePath("fond/part6"), NodePath("fond/part7")]
+
+[node name="fond" type="ColorRect" parent="."]
+z_index = 300
+texture_filter = 1
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 150.0
+color = Color(0.360784, 0.313726, 0.294118, 1)
+
+[node name="brown window" type="ColorRect" parent="fond"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 4.0
+offset_right = -20.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.388235, 0.286275, 0.27451, 1)
+
+[node name="borders" type="Sprite2D" parent="fond"]
+texture_filter = 1
+position = Vector2(18, 3)
+scale = Vector2(0.96, 1)
+texture = ExtResource("2_5f45k")
+centered = false
+
+[node name="part1" type="Control" parent="fond"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 220.0
+offset_bottom = 150.0
+
+[node name="Label" type="Label" parent="fond/part1"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -47.0
+offset_right = 109.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "To win, discard all cards from the center of the table."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TSlot1" parent="fond/part1" instance=ExtResource("3_8rkve")]
+visible = false
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(45, 23)
+script = null
+
+[node name="TSlot2" parent="fond/part1" instance=ExtResource("3_8rkve")]
+visible = false
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(71, 23)
+script = null
+
+[node name="TSlot3" parent="fond/part1" instance=ExtResource("3_8rkve")]
+visible = false
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(97, 23)
+script = null
+
+[node name="SSlot1" parent="fond/part1" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(45, 61)
+script = null
+
+[node name="SSlot2" parent="fond/part1" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(71, 61)
+script = null
+
+[node name="SSlot3" parent="fond/part1" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(97, 61)
+script = null
+
+[node name="SSlot4" parent="fond/part1" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(123, 61)
+script = null
+
+[node name="SSlot5" parent="fond/part1" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(149, 61)
+script = null
+
+[node name="SSlot6" parent="fond/part1" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(175, 61)
+script = null
+
+[node name="9WhlPirateCard" type="Sprite2D" parent="fond/part1"]
+position = Vector2(123, 23)
+texture = ExtResource("4_7fp8c")
+
+[node name="9ShrkPirateCard" type="Sprite2D" parent="fond/part1"]
+position = Vector2(149, 23)
+texture = ExtResource("6_ea16s")
+
+[node name="9SeagPirateCard" type="Sprite2D" parent="fond/part1"]
+position = Vector2(175, 23)
+texture = ExtResource("7_11dck")
+
+[node name="MobydickPirateCard" type="Sprite2D" parent="fond/part1"]
+position = Vector2(45, 23)
+texture = ExtResource("8_idvo7")
+
+[node name="KrakenPirateCard" type="Sprite2D" parent="fond/part1"]
+position = Vector2(71, 23)
+texture = ExtResource("9_i0s6j")
+
+[node name="FregatePirateCard" type="Sprite2D" parent="fond/part1"]
+position = Vector2(97, 23)
+texture = ExtResource("10_utk5q")
+
+[node name="part2" type="Control" parent="fond"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 220.0
+offset_bottom = 150.0
+
+[node name="Label" type="Label" parent="fond/part2"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -47.0
+offset_right = 109.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "Cards can be stacked and moved in the center of the table, but only if they are of alternating suits and decreasing values."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SSlot1" parent="fond/part2" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(45, 41)
+script = null
+
+[node name="SSlot2" parent="fond/part2" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(71, 41)
+script = null
+
+[node name="SSlot3" parent="fond/part2" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(97, 41)
+script = null
+
+[node name="SSlot4" parent="fond/part2" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(123, 41)
+script = null
+
+[node name="SSlot5" parent="fond/part2" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(149, 41)
+script = null
+
+[node name="SSlot6" parent="fond/part2" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(175, 41)
+script = null
+
+[node name="8SeagPirateCard" type="Sprite2D" parent="fond/part2"]
+position = Vector2(71, 41)
+texture = ExtResource("11_8j3aa")
+
+[node name="7ShrkPirateCard" type="Sprite2D" parent="fond/part2"]
+position = Vector2(71, 49)
+texture = ExtResource("12_gtypu")
+
+[node name="6SeagPirateCard" type="Sprite2D" parent="fond/part2"]
+position = Vector2(71, 57)
+texture = ExtResource("13_js4ou")
+
+[node name="5WhlPirateCard" type="Sprite2D" parent="fond/part2"]
+position = Vector2(71, 65)
+texture = ExtResource("14_6tejk")
+
+[node name="4ShrkPirateCard" type="Sprite2D" parent="fond/part2"]
+position = Vector2(71, 73)
+texture = ExtResource("15_1s1cc")
+
+[node name="3SeagPirateCard" type="Sprite2D" parent="fond/part2"]
+position = Vector2(71, 81)
+texture = ExtResource("16_o2wqu")
+
+[node name="part3" type="Control" parent="fond"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -75.0
+offset_right = 110.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="fond/part3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -51.0
+offset_right = 109.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "Discarded cards go to the top-right corner. Drag and drop a card to its corresponding suit, or double tap it, to discard it manually."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TSlot1" parent="fond/part3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(45, 23)
+script = null
+
+[node name="TSlot2" parent="fond/part3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(71, 23)
+script = null
+
+[node name="TSlot3" parent="fond/part3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(97, 23)
+script = null
+
+[node name="SlotFull" type="Sprite2D" parent="fond/part3"]
+modulate = Color(1, 1, 1, 0.27451)
+position = Vector2(123, 23)
+texture = ExtResource("17_uptgc")
+
+[node name="SlotFull2" type="Sprite2D" parent="fond/part3"]
+modulate = Color(1, 1, 1, 0.27451)
+position = Vector2(149, 23)
+texture = ExtResource("18_nb347")
+
+[node name="SlotFull3" type="Sprite2D" parent="fond/part3"]
+modulate = Color(1, 1, 1, 0.27451)
+position = Vector2(175, 23)
+texture = ExtResource("19_t6vx4")
+
+[node name="SSlot1" parent="fond/part3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(45, 61)
+script = null
+
+[node name="SSlot2" parent="fond/part3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(71, 61)
+script = null
+
+[node name="SSlot3" parent="fond/part3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(97, 61)
+script = null
+
+[node name="SSlot4" parent="fond/part3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(123, 61)
+script = null
+
+[node name="SSlot5" parent="fond/part3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(149, 61)
+script = null
+
+[node name="SSlot6" parent="fond/part3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(175, 61)
+script = null
+
+[node name="1SeagPirateCard" type="Sprite2D" parent="fond/part3"]
+position = Vector2(71, 61)
+texture = ExtResource("19_rtr8t")
+
+[node name="1ShrkPirateCard" type="Sprite2D" parent="fond/part3"]
+position = Vector2(149, 23)
+texture = ExtResource("20_iyogy")
+
+[node name="1WhlPirateCard" type="Sprite2D" parent="fond/part3"]
+position = Vector2(175, 61)
+texture = ExtResource("21_yfbbs")
+
+[node name="2ShrkPirateCard" type="Sprite2D" parent="fond/part3"]
+position = Vector2(149, 23)
+texture = ExtResource("22_jgtsl")
+
+[node name="2WhlPirateCard" type="Sprite2D" parent="fond/part3"]
+position = Vector2(175, 69)
+texture = ExtResource("23_0yd4x")
+
+[node name="3SeagPirateCard" type="Sprite2D" parent="fond/part3"]
+position = Vector2(175, 77)
+texture = ExtResource("16_o2wqu")
+
+[node name="3ShrkPirateCard" type="Sprite2D" parent="fond/part3"]
+position = Vector2(136, 35)
+texture = ExtResource("24_cql4v")
+
+[node name="TouchIconPixel" type="Sprite2D" parent="fond/part3/3ShrkPirateCard"]
+position = Vector2(-1, 12)
+texture = ExtResource("21_py1rn")
+centered = false
+
+[node name="3WhlPirateCard" type="Sprite2D" parent="fond/part3"]
+position = Vector2(71, 69)
+texture = ExtResource("26_6d0q7")
+
+[node name="2SeagPirateCard" type="Sprite2D" parent="fond/part3/3WhlPirateCard"]
+position = Vector2(0, 8)
+texture = ExtResource("27_o0or2")
+
+[node name="part4" type="Control" parent="fond"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -75.0
+offset_right = 110.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="fond/part4"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -49.0
+offset_right = 109.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "The free cells in the top-left corner of the table can store one card of any type."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="4ShrkPirateCard" type="Sprite2D" parent="fond/part4"]
+position = Vector2(45, 23)
+texture = ExtResource("15_1s1cc")
+
+[node name="PiratePirateCard" type="Sprite2D" parent="fond/part4"]
+position = Vector2(97, 23)
+texture = ExtResource("17_b470i")
+
+[node name="TSlot1" parent="fond/part4" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(45, 23)
+script = null
+
+[node name="TSlot2" parent="fond/part4" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(71, 23)
+script = null
+
+[node name="TSlot3" parent="fond/part4" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(97, 23)
+script = null
+
+[node name="SlotFull" type="Sprite2D" parent="fond/part4"]
+modulate = Color(1, 1, 1, 0.27451)
+position = Vector2(123, 23)
+texture = ExtResource("17_uptgc")
+
+[node name="SlotFull2" type="Sprite2D" parent="fond/part4"]
+modulate = Color(1, 1, 1, 0.27451)
+position = Vector2(149, 23)
+texture = ExtResource("18_nb347")
+
+[node name="SlotFull3" type="Sprite2D" parent="fond/part4"]
+modulate = Color(1, 1, 1, 0.27451)
+position = Vector2(175, 23)
+texture = ExtResource("19_t6vx4")
+
+[node name="SSlot1" parent="fond/part4" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(45, 61)
+script = null
+
+[node name="SSlot2" parent="fond/part4" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(71, 61)
+script = null
+
+[node name="SSlot3" parent="fond/part4" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(97, 61)
+script = null
+
+[node name="SSlot4" parent="fond/part4" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(123, 61)
+script = null
+
+[node name="SSlot5" parent="fond/part4" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(149, 61)
+script = null
+
+[node name="SSlot6" parent="fond/part4" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(175, 61)
+script = null
+
+[node name="part5" type="Control" parent="fond"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -75.0
+offset_right = 110.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="fond/part5"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -51.0
+offset_right = 109.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "When a beast and at least two pirates are exposed, they can all be permanently moved to an open free cell by pushing the corresponding button,"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TSlot1" parent="fond/part5" instance=ExtResource("3_8rkve")]
+visible = false
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(134, 44)
+script = null
+
+[node name="TSlot2" parent="fond/part5" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(160, 44)
+script = null
+
+[node name="TSlot3" parent="fond/part5" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(186, 44)
+script = null
+
+[node name="PiratePirateCard2" type="Sprite2D" parent="fond/part5"]
+position = Vector2(81, 49)
+texture = ExtResource("18_rjihr")
+
+[node name="PiratePirateCard" type="Sprite2D" parent="fond/part5"]
+position = Vector2(62, 49)
+texture = ExtResource("18_rjihr")
+
+[node name="MobydickPirateCard2" type="Sprite2D" parent="fond/part5"]
+position = Vector2(134, 44)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_p7df4")
+
+[node name="MobydickPirateCard" type="Sprite2D" parent="fond/part5"]
+position = Vector2(43, 49)
+texture = ExtResource("19_p7df4")
+
+[node name="MobydickButtonLD" type="Sprite2D" parent="fond/part5"]
+position = Vector2(110, 64)
+texture = ExtResource("22_1mpjt")
+centered = false
+
+[node name="TouchIconPixel" type="Sprite2D" parent="fond/part5"]
+position = Vector2(121, 79)
+texture = ExtResource("21_py1rn")
+centered = false
+
+[node name="part6" type="Control" parent="fond"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -75.0
+offset_right = 110.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="brown window" type="ColorRect" parent="fond/part6"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 6.0
+offset_right = 107.0
+offset_bottom = 40.0
+color = Color(0.254902, 0.156863, 0.156863, 0.313726)
+
+[node name="TSlot1" parent="fond/part6/brown window" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(15, 17)
+script = null
+
+[node name="TSlot2" parent="fond/part6/brown window" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(41, 17)
+script = null
+
+[node name="TSlot3" parent="fond/part6/brown window" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(67, 17)
+script = null
+
+[node name="8SeagPirateCard" type="Sprite2D" parent="fond/part6/brown window"]
+position = Vector2(41, 17)
+texture = ExtResource("11_8j3aa")
+
+[node name="6ShrkPirateCard" type="Sprite2D" parent="fond/part6/brown window"]
+position = Vector2(67, 17)
+texture = ExtResource("24_5kddy")
+
+[node name="OkIcon" type="Sprite2D" parent="fond/part6"]
+modulate = Color(0.686275, 1, 0.686275, 1)
+position = Vector2(66, 45)
+texture = ExtResource("24_awc2k")
+
+[node name="brown window2" type="ColorRect" parent="fond/part6"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 52.0
+offset_right = 107.0
+offset_bottom = 86.0
+color = Color(0.254902, 0.156863, 0.156863, 0.313726)
+
+[node name="TSlot4" parent="fond/part6/brown window2" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(15, 17)
+script = null
+
+[node name="TSlot5" parent="fond/part6/brown window2" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(41, 17)
+script = null
+
+[node name="TSlot6" parent="fond/part6/brown window2" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(67, 17)
+script = null
+
+[node name="MobydickPirateCard3" type="Sprite2D" parent="fond/part6/brown window2"]
+position = Vector2(15, 17)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_p7df4")
+
+[node name="8SeagPirateCard2" type="Sprite2D" parent="fond/part6/brown window2"]
+position = Vector2(41, 17)
+texture = ExtResource("11_8j3aa")
+
+[node name="6ShrkPirateCard2" type="Sprite2D" parent="fond/part6/brown window2"]
+position = Vector2(67, 17)
+texture = ExtResource("24_5kddy")
+
+[node name="OkIcon2" type="Sprite2D" parent="fond/part6"]
+modulate = Color(0.686275, 1, 0.686275, 1)
+position = Vector2(66, 91)
+texture = ExtResource("24_awc2k")
+
+[node name="brown window3" type="ColorRect" parent="fond/part6"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 29.0
+offset_right = 195.0
+offset_bottom = 63.0
+color = Color(0.254902, 0.156863, 0.156863, 0.313726)
+
+[node name="TSlot7" parent="fond/part6/brown window3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(15, 17)
+script = null
+
+[node name="TSlot8" parent="fond/part6/brown window3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(41, 17)
+script = null
+
+[node name="TSlot9" parent="fond/part6/brown window3" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(67, 17)
+script = null
+
+[node name="PiratePirateCard" type="Sprite2D" parent="fond/part6/brown window3"]
+position = Vector2(15, 17)
+texture = ExtResource("17_b470i")
+
+[node name="8SeagPirateCard3" type="Sprite2D" parent="fond/part6/brown window3"]
+position = Vector2(41, 17)
+texture = ExtResource("11_8j3aa")
+
+[node name="6ShrkPirateCard3" type="Sprite2D" parent="fond/part6/brown window3"]
+position = Vector2(67, 17)
+texture = ExtResource("24_5kddy")
+
+[node name="XIcon" type="Sprite2D" parent="fond/part6"]
+modulate = Color(1, 0.588235, 0.588235, 1)
+position = Vector2(154, 69)
+texture = ExtResource("25_t4fa0")
+
+[node name="Label" type="Label" parent="fond/part6"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -51.0
+offset_right = 109.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "to make this move, the cell must be free for the beast, not for a pirate."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="part7" type="Control" parent="fond"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -75.0
+offset_right = 110.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+localize_numeral_system = false
+
+[node name="Label" type="Label" parent="fond/part7"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -51.0
+offset_right = 110.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "If more than two pirates are exposed, select the two to discard by touching them while the button is toggled."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PiratePirateCard" type="Sprite2D" parent="fond/part7"]
+modulate = Color(1.55, 1.55, 1.4, 1)
+position = Vector2(149, 65)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_rjihr")
+
+[node name="PiratePirateCard2" type="Sprite2D" parent="fond/part7"]
+position = Vector2(97, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_rjihr")
+
+[node name="PiratePirateCard3" type="Sprite2D" parent="fond/part7"]
+modulate = Color(1.55, 1.55, 1.4, 1)
+position = Vector2(123, 27)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_rjihr")
+
+[node name="MobydickPirateCard" type="Sprite2D" parent="fond/part7"]
+position = Vector2(71, 65)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_p7df4")
+
+[node name="MobydickButtonLHl" type="Sprite2D" parent="fond/part7"]
+position = Vector2(171, 38)
+texture = ExtResource("24_qbgci")
+centered = false
+
+[node name="TSlot1" parent="fond/part7" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(71, 27)
+script = null
+
+[node name="TSlot2" parent="fond/part7" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(97, 27)
+script = null
+
+[node name="TSlot3" parent="fond/part7" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(123, 27)
+script = null
+
+[node name="SlotFull" type="Sprite2D" parent="fond/part7"]
+modulate = Color(1, 1, 1, 0.27451)
+position = Vector2(149, 27)
+texture = ExtResource("17_uptgc")
+
+[node name="SSlot1" parent="fond/part7" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(71, 65)
+script = null
+
+[node name="SSlot2" parent="fond/part7" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(97, 65)
+script = null
+
+[node name="SSlot3" parent="fond/part7" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(123, 65)
+script = null
+
+[node name="SSlot4" parent="fond/part7" instance=ExtResource("3_8rkve")]
+modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(149, 65)
+script = null
+
+[node name="TouchIconPixel" type="Sprite2D" parent="fond/part7"]
+position = Vector2(146, 67)
+texture = ExtResource("21_py1rn")
+centered = false
+
+[node name="TouchIconPixel2" type="Sprite2D" parent="fond/part7"]
+position = Vector2(121, 27)
+texture = ExtResource("21_py1rn")
+centered = false
+
+[node name="Previous button" type="TextureButton" parent="fond"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 39.0
+offset_right = 14.0
+offset_bottom = 61.0
+texture_normal = ExtResource("20_ry4mo")
+
+[node name="Next button" type="TextureButton" parent="fond"]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 61.0
+offset_right = 232.0
+offset_bottom = 83.0
+rotation = 3.14159
+texture_normal = ExtResource("20_ry4mo")
+
+[node name="CloseButton" type="TextureButton" parent="fond"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 1.0
+offset_right = 219.0
+offset_bottom = 19.0
+texture_normal = ExtResource("24_u8spm")
+stretch_mode = 3
+
+[connection signal="button_down" from="fond/Previous button" to="." method="_on_previous_button_down"]
+[connection signal="button_down" from="fond/Next button" to="." method="_on_next_button_down"]
+[connection signal="button_down" from="fond/CloseButton" to="." method="_on_close_button_down"]

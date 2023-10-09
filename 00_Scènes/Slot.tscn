@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cppxqvqmd0gtw"]
+
+[ext_resource type="Texture2D" uid="uid://ceocklvguv0y0" path="res://Sprites/Slot.png" id="1_h5exu"]
+[ext_resource type="Script" path="res://Scripts/Slot.gd" id="2_hxw50"]
+
+[node name="Slot" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_h5exu")
+script = ExtResource("2_hxw50")

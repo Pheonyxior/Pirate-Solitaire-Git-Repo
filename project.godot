@@ -1,0 +1,52 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Pirate Solitaire"
+run/main_scene="res://00_Scènes/MainGame.tscn"
+config/quit_on_go_back=false
+config/features=PackedStringArray("4.1", "GL Compatibility")
+run/max_fps=60
+boot_splash/bg_color=Color(0.382813, 0.28125, 0.269531, 1)
+boot_splash/image="res://Sprites/splashboot imagex6.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://Sprites/Pirate Solitaire App Icon..png"
+config/windows_native_icon="res://icon2.ico"
+boot_splash/minimum_display_time=3000
+
+[autoload]
+
+CardManager="*res://Scripts/CardManager.gd"
+
+[display]
+
+window/size/viewport_width=220
+window/size/viewport_height=150
+window/size/mode=2
+window/stretch/mode="viewport"
+window/handheld/orientation=4
+window/ios/allow_high_refresh_rate=false
+
+[gui]
+
+theme/custom_font="res://Fonts/dogicapixel.ttf"
+theme/default_font_antialiasing=0
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

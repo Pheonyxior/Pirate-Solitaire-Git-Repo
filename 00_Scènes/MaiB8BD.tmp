@@ -1,0 +1,212 @@
+[gd_scene load_steps=8 format=3 uid="uid://elcwd3pr7sox"]
+
+[ext_resource type="Script" path="res://Scripts/MainGame.gd" id="1_886r8"]
+[ext_resource type="Texture2D" uid="uid://bd5jnfv1k0vef" path="res://Sprites/x10/Maquette PrtSltr1.png" id="2_te4vk"]
+[ext_resource type="PackedScene" uid="uid://c7rtsul76e814" path="res://Scènes/Slot.tscn" id="3_i0yq2"]
+[ext_resource type="Texture2D" uid="uid://dkxh558ykdo7h" path="res://Sprites/cards/Verso3 Pirate Card.png" id="4_bthxh"]
+[ext_resource type="Texture2D" uid="uid://8clc8e8uakdx" path="res://Sprites/cards/Gold Sabre Pirate Card.png" id="4_gr0ms"]
+
+[sub_resource type="Theme" id="Theme_7y8gv"]
+default_font_size = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ty6xp"]
+
+[node name="MainGame" type="Node" node_paths=PackedStringArray("_new_game_button", "_deck_sprite")]
+script = ExtResource("1_886r8")
+_new_game_button = NodePath("New Game")
+_deck_sprite = [NodePath("Deck/Deck part6"), NodePath("Deck/Deck part5"), NodePath("Deck/Deck part4"), NodePath("Deck/Deck part3"), NodePath("Deck/Deck part2"), NodePath("Deck/Deck part1")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.386719, 0.285156, 0.273438, 1)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+z_index = -2
+color = Color(0.386719, 0.285156, 0.273438, 1)
+polygon = PackedVector2Array(0, 0, 256, 0, 256, 160, 0, 160)
+metadata/_edit_lock_ = true
+
+[node name="Maquette" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.360784)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_te4vk")
+centered = false
+
+[node name="New Game" type="Button" parent="."]
+texture_filter = 1
+offset_left = 3.0
+offset_top = 143.0
+offset_right = 77.0
+offset_bottom = 158.0
+theme = SubResource("Theme_7y8gv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ty6xp")
+text = "new game"
+flat = true
+
+[node name="Trail Slots" type="Node" parent="."]
+
+[node name="TSlot1" parent="Trail Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(48, 21)
+_slot_type = "Trail"
+
+[node name="TSlot2" parent="Trail Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(76, 21)
+_slot_type = "Trail"
+
+[node name="TSlot3" parent="Trail Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(104, 21)
+_slot_type = "Trail"
+
+[node name="TSlot4" parent="Trail Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(184, 21)
+_slot_type = "Trail"
+
+[node name="TSlot5" parent="Trail Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(212, 21)
+_slot_type = "Trail"
+
+[node name="TSlot6" parent="Trail Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(240, 21)
+_slot_type = "Trail"
+
+[node name="Stack Slots" type="Node" parent="."]
+
+[node name="SSlot1" parent="Stack Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(40, 68)
+_slot_type = "Stack"
+
+[node name="SSlot2" parent="Stack Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(72, 68)
+_slot_type = "Stack"
+
+[node name="SSlot3" parent="Stack Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(104, 68)
+_slot_type = "Stack"
+
+[node name="SSlot4" parent="Stack Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(136, 68)
+_slot_type = "Stack"
+
+[node name="SSlot5" parent="Stack Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(168, 68)
+_slot_type = "Stack"
+
+[node name="SSlot6" parent="Stack Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(200, 68)
+_slot_type = "Stack"
+
+[node name="Discard Slots" type="Node" parent="."]
+
+[node name="DSlot1" parent="Discard Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(240, 68)
+_slot_type = "Discard"
+_slot_color = "Whl"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Discard Slots/DSlot1"]
+modulate = Color(1, 1, 1, 0.101961)
+texture_filter = 1
+texture = ExtResource("4_bthxh")
+
+[node name="DSlot2" parent="Discard Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(240, 104)
+_slot_type = "Discard"
+_slot_color = "Shrk"
+
+[node name="Sprite2D3" type="Sprite2D" parent="Discard Slots/DSlot2"]
+modulate = Color(1, 1, 1, 0.101961)
+texture_filter = 1
+texture = ExtResource("4_bthxh")
+
+[node name="DSlot3" parent="Discard Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(240, 140)
+_slot_type = "Discard"
+_slot_color = "Seag"
+
+[node name="Sprite2D4" type="Sprite2D" parent="Discard Slots/DSlot3"]
+modulate = Color(1, 1, 1, 0.101961)
+texture_filter = 1
+texture = ExtResource("4_bthxh")
+
+[node name="DSlot4" parent="Discard Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(144, 21)
+_slot_type = "Discard"
+_slot_color = "Gold Sabre"
+
+[node name="Sprite2D" type="Sprite2D" parent="Discard Slots/DSlot4"]
+modulate = Color(1, 1, 1, 0.101961)
+texture_filter = 1
+texture = ExtResource("4_gr0ms")
+
+[node name="Garbage Slots" type="Node" parent="."]
+
+[node name="GSlot5" parent="Garbage Slots" instance=ExtResource("3_i0yq2")]
+z_index = -1
+position = Vector2(13, 17)
+_slot_type = "Garbage"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Garbage Slots/GSlot5"]
+modulate = Color(1, 1, 1, 0.101961)
+texture_filter = 1
+texture = ExtResource("4_bthxh")
+
+[node name="Deck" type="Node" parent="."]
+
+[node name="Deck part1" type="Sprite2D" parent="Deck"]
+z_index = -1
+texture_filter = 1
+position = Vector2(144, 21)
+texture = ExtResource("4_bthxh")
+
+[node name="Deck part2" type="Sprite2D" parent="Deck"]
+z_index = -1
+texture_filter = 1
+position = Vector2(144, 20)
+texture = ExtResource("4_bthxh")
+
+[node name="Deck part3" type="Sprite2D" parent="Deck"]
+z_index = -1
+texture_filter = 1
+position = Vector2(144, 19)
+texture = ExtResource("4_bthxh")
+
+[node name="Deck part4" type="Sprite2D" parent="Deck"]
+z_index = -1
+texture_filter = 1
+position = Vector2(144, 18)
+texture = ExtResource("4_bthxh")
+
+[node name="Deck part5" type="Sprite2D" parent="Deck"]
+z_index = -1
+texture_filter = 1
+position = Vector2(144, 17)
+texture = ExtResource("4_bthxh")
+
+[node name="Deck part6" type="Sprite2D" parent="Deck"]
+z_index = -1
+texture_filter = 1
+position = Vector2(144, 16)
+texture = ExtResource("4_bthxh")
+
+[connection signal="button_down" from="New Game" to="." method="_on_new_game_button_down"]
