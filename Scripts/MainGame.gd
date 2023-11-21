@@ -235,7 +235,10 @@ func _on_tree_exited():
 func _on_new_game_button_down():
 	_new_game()
 
-
+func _on_new_game_button_long_press():
+	_new_game()
+	
+	
 func _on_help_button_down():
 	var instance = _tuto_window.instantiate()
 	add_child(instance)
