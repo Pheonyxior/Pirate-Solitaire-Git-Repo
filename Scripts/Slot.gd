@@ -36,8 +36,8 @@ func _has_point(input_pos : Vector2):
 
 func lock():
 	_locked = true
-	texture = null
+#	texture = null
 
 func unlock():
 	_locked = false
-	texture = load("res://Sprites/Slot.png")
+#	texture = load("res://Sprites/Slot.png")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://elcwd3pr7sox"]
+[gd_scene load_steps=48 format=3 uid="uid://elcwd3pr7sox"]
 
 [ext_resource type="Script" path="res://Scripts/MainGame.gd" id="1_886r8"]
 [ext_resource type="PackedScene" uid="uid://cppxqvqmd0gtw" path="res://00_Scènes/Slot.tscn" id="3_i0yq2"]
@@ -17,11 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://byu2askpcq86v" path="res://Sprites/UI/Fregate_Button_Dark.png" id="10_t1am2"]
 [ext_resource type="Texture2D" uid="uid://douiqrgno36jr" path="res://Sprites/UI/Kraken_Button_Highlight.png" id="11_ayb3k"]
 [ext_resource type="Texture2D" uid="uid://dnwtqga31u4f8" path="res://Sprites/UI/Kraken_Button_Dark.png" id="12_5peol"]
+[ext_resource type="Texture2D" uid="uid://du2urjmv434wl" path="res://Sprites/UI/seed_button_dark.png" id="16_f7hnm"]
 [ext_resource type="Texture2D" uid="uid://cfofmnb5tgeqp" path="res://Sprites/UI/help_button.png" id="16_q4wj1"]
-[ext_resource type="Script" path="res://Scripts/SeedLineEdit.gd" id="16_whawu"]
 [ext_resource type="Texture2D" uid="uid://jj72cl5g71on" path="res://Sprites/UI/+_button.png" id="17_rtsfu"]
 [ext_resource type="Script" path="res://Scripts/VolumeSlider.gd" id="18_b050j"]
-[ext_resource type="Texture2D" uid="uid://brmghklv8l31q" path="res://Sprites/UI/x_icon.png" id="18_i2kgy"]
+[ext_resource type="Script" path="res://Scripts/GameSeedButton.gd" id="18_lvd6u"]
 [ext_resource type="Script" path="res://Scripts/MusicVolumeSlider.gd" id="20_2f8de"]
 [ext_resource type="Texture2D" uid="uid://b3a22kkeoowfr" path="res://Sprites/UI/Grabber_Highlight.png" id="20_md5g2"]
 [ext_resource type="Texture2D" uid="uid://bg21avcs6wc6h" path="res://Sprites/UI/volume_button.png" id="20_sxm3w"]
@@ -36,7 +36,6 @@
 [ext_resource type="Texture2D" uid="uid://bxvvdphyisgre" path="res://Sprites/UI/exit_icon_toggled.png" id="26_b3boc"]
 [ext_resource type="Script" path="res://Scripts/CustomButton.gd" id="27_qgwli"]
 [ext_resource type="Texture2D" uid="uid://cliohcdg0yfo5" path="res://Sprites/UI/+_button_toggled.png" id="29_q63n2"]
-[ext_resource type="Script" path="res://Scripts/DoubleClickButton.gd" id="30_c6kiw"]
 [ext_resource type="Script" path="res://Scripts/BaseControl.gd" id="30_f8kc5"]
 [ext_resource type="Texture2D" uid="uid://bbjxsfaob2yt8" path="res://Sprites/UI/reset_button.png" id="31_4blv1"]
 [ext_resource type="Texture2D" uid="uid://b0lbqsm1csys1" path="res://Sprites/UI/reset_button_light.png" id="32_t5ur7"]
@@ -48,40 +47,16 @@ stereo = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7v6ty"]
 bg_color = Color(0.254902, 0.156863, 0.156863, 1)
-border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.576471, 0.490196, 0.407843, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 1.0
-expand_margin_top = 10.0
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+expand_margin_top = 1.0
 expand_margin_right = 1.0
 expand_margin_bottom = 1.0
 anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re2h2"]
-bg_color = Color(0.388235, 0.286275, 0.27451, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j02li"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejxlx"]
-bg_color = Color(0.388235, 0.286275, 0.27451, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2cjhw"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mbv4x"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4jn3"]
-bg_color = Color(0, 0, 0, 0.117647)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_plram"]
 color = Color(0.253906, 0.15625, 0.15625, 1)
@@ -158,7 +133,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.388235, 0.286275, 0.27451, 1)
 
-[node name="MobydickButton" type="TextureButton" parent="." groups=["UI Interactibles"]]
+[node name="MobydickButton" type="TextureButton" parent="."]
 texture_filter = 1
 offset_left = 191.0
 offset_top = 6.0
@@ -172,7 +147,7 @@ texture_pressed = ExtResource("8_nu2xo")
 texture_disabled = ExtResource("9_241yk")
 stretch_mode = 3
 
-[node name="KrakenButton" type="TextureButton" parent="." groups=["UI Interactibles"]]
+[node name="KrakenButton" type="TextureButton" parent="."]
 texture_filter = 1
 offset_left = 191.0
 offset_top = 31.0
@@ -186,7 +161,7 @@ texture_pressed = ExtResource("11_ayb3k")
 texture_disabled = ExtResource("12_5peol")
 stretch_mode = 3
 
-[node name="FregateButton" type="TextureButton" parent="." groups=["UI Interactibles"]]
+[node name="FregateButton" type="TextureButton" parent="."]
 texture_filter = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -207,101 +182,23 @@ texture_pressed = ExtResource("9_x53o8")
 texture_disabled = ExtResource("10_t1am2")
 stretch_mode = 3
 
-[node name="GameSeedPanel" type="Panel" parent="."]
-visible = false
-show_behind_parent = true
-z_index = 201
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -78.0
-offset_top = -25.0
-offset_right = 76.0
-offset_bottom = 35.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="GameSeedButton" type="TextureButton" parent="."]
+offset_top = 35.0
+offset_right = 11.0
+offset_bottom = 50.0
+toggle_mode = true
+texture_normal = ExtResource("16_f7hnm")
+script = ExtResource("18_lvd6u")
+
+[node name="GameSeedPanel" type="Panel" parent="GameSeedButton"]
+offset_left = -61.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 14.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7v6ty")
 script = ExtResource("30_f8kc5")
 
-[node name="Current" type="Label" parent="GameSeedPanel"]
-layout_mode = 0
-offset_right = 154.0
-offset_bottom = 11.0
-theme_override_colors/font_color = Color(0.92549, 0.776471, 0.635294, 1)
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_re2h2")
-text = "Current deal seed"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="currentSeed" type="LineEdit" parent="GameSeedPanel/Current" groups=["UI Interactibles"]]
-layout_mode = 0
-offset_left = -4.0
-offset_top = 13.0
-offset_right = 158.0
-offset_bottom = 28.0
-theme_override_colors/font_uneditable_color = Color(0.913725, 0.847059, 0.780392, 1)
-theme_override_colors/caret_color = Color(1, 1, 1, 1)
-theme_override_colors/selection_color = Color(0.388235, 0.286275, 0.27451, 1)
-theme_override_font_sizes/font_size = 8
-theme_override_styles/focus = SubResource("StyleBoxEmpty_j02li")
-text = "_760528805545604784"
-alignment = 1
-max_length = 20
-editable = false
-virtual_keyboard_enabled = false
-virtual_keyboard_type = 2
-flat = true
-caret_blink = true
-script = ExtResource("16_whawu")
-
-[node name="Next" type="Label" parent="GameSeedPanel"]
-layout_mode = 0
-offset_top = 30.0
-offset_right = 154.0
-offset_bottom = 41.0
-theme_override_colors/font_color = Color(0.92549, 0.776471, 0.635294, 1)
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_ejxlx")
-text = "Next deal seed"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="seedLineEdit" type="LineEdit" parent="GameSeedPanel/Next" groups=["UI Interactibles"]]
-layout_mode = 0
-offset_left = -4.0
-offset_top = 13.0
-offset_right = 158.0
-offset_bottom = 28.0
-theme_override_colors/font_color = Color(0.913725, 0.847059, 0.780392, 1)
-theme_override_colors/caret_color = Color(1, 1, 1, 1)
-theme_override_colors/selection_color = Color(0.388235, 0.286275, 0.27451, 1)
-theme_override_font_sizes/font_size = 8
-theme_override_styles/focus = SubResource("StyleBoxEmpty_j02li")
-placeholder_text = "enter new seed"
-alignment = 1
-flat = true
-caret_blink = true
-script = ExtResource("16_whawu")
-
-[node name="Close Button" type="Button" parent="GameSeedPanel" groups=["UI Interactibles"]]
-self_modulate = Color(0.913725, 0.847059, 0.780392, 1)
-layout_mode = 0
-offset_left = 139.0
-offset_top = -13.0
-offset_right = 155.0
-offset_bottom = 3.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_2cjhw")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_mbv4x")
-theme_override_styles/focus = SubResource("StyleBoxFlat_u4jn3")
-icon = ExtResource("18_i2kgy")
-flat = true
-icon_alignment = 1
-
-[node name="Volume Button" type="TextureButton" parent="." groups=["UI Interactibles"]]
+[node name="Volume Button" type="TextureButton" parent="."]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -319,7 +216,7 @@ texture_normal = ExtResource("20_sxm3w")
 texture_pressed = ExtResource("21_4rlyj")
 stretch_mode = 3
 
-[node name="Volume Slider" type="HSlider" parent="Volume Button" groups=["UI Interactibles"]]
+[node name="Volume Slider" type="HSlider" parent="Volume Button"]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -339,7 +236,7 @@ step = 0.02
 value = 0.5
 script = ExtResource("18_b050j")
 
-[node name="Music Volume Slider" type="HSlider" parent="Volume Button" groups=["UI Interactibles"]]
+[node name="Music Volume Slider" type="HSlider" parent="Volume Button"]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -359,7 +256,7 @@ step = 0.02
 value = 0.5
 script = ExtResource("20_2f8de")
 
-[node name="Help Button" type="TextureButton" parent="." groups=["UI Interactibles"]]
+[node name="Help Button" type="TextureButton" parent="."]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -375,7 +272,7 @@ grow_vertical = 2
 texture_normal = ExtResource("16_q4wj1")
 stretch_mode = 3
 
-[node name="Credits button" type="TextureButton" parent="." groups=["UI Interactibles"]]
+[node name="Credits button" type="TextureButton" parent="."]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -401,7 +298,6 @@ offset_left = 30.0
 offset_top = 4.0
 offset_right = 190.0
 offset_bottom = 144.0
-mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0048f")
 script = ExtResource("30_f8kc5")
 
@@ -415,7 +311,7 @@ text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="content" type="RichTextLabel" parent="Credits panel" groups=["UI Interactibles"]]
+[node name="content" type="RichTextLabel" parent="Credits panel"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -460,7 +356,7 @@ victor-pernet.itch.io
 /pirate-solitaire"
 autowrap_mode = 1
 
-[node name="Exit button" type="TextureButton" parent="." groups=["UI Interactibles"]]
+[node name="Exit button" type="TextureButton" parent="."]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -486,7 +382,7 @@ offset_right = 18.0
 offset_bottom = 18.0
 texture = ExtResource("26_b3boc")
 
-[node name="New Game Button" type="TextureButton" parent="." groups=["UI Interactibles"]]
+[node name="New Game Button" type="TextureButton" parent="."]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -501,7 +397,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("17_rtsfu")
 stretch_mode = 3
-script = ExtResource("30_c6kiw")
+script = ExtResource("27_qgwli")
 
 [node name="Highlighted button2" type="TextureRect" parent="New Game Button"]
 show_behind_parent = true
@@ -512,7 +408,7 @@ offset_right = 18.0
 offset_bottom = 18.0
 texture = ExtResource("29_q63n2")
 
-[node name="Restart Game Button" type="TextureButton" parent="." groups=["UI Interactibles"]]
+[node name="Restart Game Button" type="TextureButton" parent="."]
 texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -536,7 +432,6 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 18.0
 offset_bottom = 18.0
-mouse_filter = 2
 texture = ExtResource("32_t5ur7")
 
 [node name="win icon" type="TextureRect" parent="."]
@@ -667,7 +562,7 @@ texture = ExtResource("4_bthxh")
 [node name="GSlot5" parent="Garbage Slots" instance=ExtResource("3_i0yq2")]
 visible = false
 z_index = -1
-position = Vector2(12, 60)
+position = Vector2(12, 16)
 _slot_type = "Garbage"
 
 [node name="Sprite2D2" type="Sprite2D" parent="Garbage Slots/GSlot5"]
@@ -720,8 +615,8 @@ position = Vector2(96, 17)
 texture = ExtResource("4_bthxh")
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
-[connection signal="_seed_changed" from="GameSeedPanel/Next/seedLineEdit" to="." method="_on_seed_line_edit_changed"]
-[connection signal="button_up" from="GameSeedPanel/Close Button" to="GameSeedPanel" method="_on_close_button_button_up"]
+[connection signal="toggled" from="GameSeedButton" to="GameSeedButton" method="_on_toggled"]
+[connection signal="toggled" from="GameSeedButton" to="GameSeedButton/GameSeedPanel" method="_on_button_toggled"]
 [connection signal="toggled" from="Volume Button" to="Volume Button/Volume Slider" method="_on_volume_button_toggled"]
 [connection signal="toggled" from="Volume Button" to="Volume Button/Music Volume Slider" method="_on_volume_button_toggled"]
 [connection signal="value_changed" from="Volume Button/Volume Slider" to="Volume Button/Volume Slider" method="_on_value_changed"]
@@ -733,7 +628,6 @@ texture = ExtResource("4_bthxh")
 [connection signal="long_press" from="Exit button" to="." method="_on_exit_button_long_press"]
 [connection signal="button_down" from="New Game Button" to="New Game Button" method="_on_button_down"]
 [connection signal="button_up" from="New Game Button" to="New Game Button" method="_on_button_up"]
-[connection signal="double_click" from="New Game Button" to="GameSeedPanel" method="_on_new_game_button_double_click"]
 [connection signal="long_press" from="New Game Button" to="." method="_on_new_game_button_long_press"]
 [connection signal="button_down" from="Restart Game Button" to="Restart Game Button" method="_on_button_down"]
 [connection signal="button_up" from="Restart Game Button" to="Restart Game Button" method="_on_button_up"]

@@ -56,6 +56,7 @@ var _win_count : int
 var _sfx_volume : float = 0.5
 var _music_volume : float = 0.5
 
+var _move_amount := 10
 
 func _ready():
 	
@@ -107,77 +108,56 @@ func _create_card(color : String, number = null) -> Card:
 	if number != null:
 		var format_string = "res://Sprites/cards/%s%s Pirate Card.png"
 		
-
 		card_instance.texture = load( format_string % [number, color])
 	else:
 		var format_string = "res://Sprites/cards/%s Pirate Card.png"
 		
-
 		card_instance.texture = load( format_string % color)
-	
-
-
 	
 	return card_instance
 
 func _unhandled_input(event):
 	if !_can_play:
 		return
-	
-	
-	
+		
 	if event is InputEventMouseButton && not _is_selecting_pirates:
-
-
 		if event.double_click : 
-
 			_cancel_drop()
-
+			
 			for i in _card_stacks.size():
-
 				if _card_stacks[i].size() == 0:
 					continue
 					# we use card_index -1 to adjust for the array size having +1 compared to the array index
-
 				var card = _card_stacks[i].back() as Card
-
 				if card._has_point(event.position):
-
-
 					if _color_trails.has(card._color):
 						if _color_trails[card._color] == card._number -1:
 #						var same_color_slot = _discard_slots[card._color]
 							_card_stacks[i].pop_back()
 							await _discard_card(card)
-
 							_update_board_state()
 							_is_double_clicking = false
 							return
-
-
 			for i in _trail_slots.size():
 				if _trail_slots[i]._locked:
 					continue
-
 				var card = _trail_slots[i]._held_card as Card
 				if card != null:
-					if _color_trails.has(card._color):
-						if _color_trails[card._color] == card._number -1:
-							_trail_slots[i]._held_card = null
-							await _discard_card(card)
-
-							_update_board_state()
-							_is_double_clicking = false
-							return
+					if card._has_point(event.position):
+						if _color_trails.has(card._color):
+							if _color_trails[card._color] == card._number -1:
+								_trail_slots[i]._held_card = null
+								await _discard_card(card)
+								_update_board_state()
+								_is_double_clicking = false
+								return
 	
 	
 	if event is InputEventScreenTouch :
 		
-		
-		
-		# if the player touches the screen with a single finger, and the event wasn't accepted by a button already
-		if event.pressed :#&& event.index == 0:
-			
+		if event.pressed :
+			# we disable the button detection so that they don't catch our finger input
+			# while dragging a card
 			_game_scene._disable_all_buttons_detection()
 			
 			if _is_selecting_pirates:
@@ -200,18 +180,12 @@ func _unhandled_input(event):
 							_selected_pirates_index.append(i)
 						elif not pirate._toggled:
 							_selected_pirates_index.erase(i)
-						
-						
-						
 						if _selected_pirates_index.size() == 2:
 							
 							_discard_beast()
-							
-						
 				return
-	
-
-
+			
+			
 			for i in _card_stacks.size():
 				
 				if _card_stacks[i].size() == 0:
@@ -223,12 +197,10 @@ func _unhandled_input(event):
 					var card = _card_stacks[i][card_index-1] as Card
 
 					
-					if card._has_point(event.position):
-						
-						#### Insert if condition if pick is valid here ####
+					if card._has_point(event.position) and not card._tween.is_running():
 						
 						# we use card_index -1 for the same reason as before, but we don't have to do the same
-						# for size() because this argument is exclusive
+						# for size() because slice's second argument is exclusive
 						var sliced_stack = _card_stacks[i].slice(card_index-1, _card_stacks[i].size())
 						
 						# if the stack we're trying to pick is a single card, or is a suite of card
@@ -250,7 +222,7 @@ func _unhandled_input(event):
 				
 				var card = _trail_slots[i]._held_card as Card
 				if card != null:
-					if card._has_point(event.position):
+					if card._has_point(event.position) and not card._tween.is_running():
 						_pick_card(card, event.position)
 						_current_input = event.index
 						# we put an offset of the number of card stacks on the index to differentiate the trail slots from the card stacks
@@ -260,7 +232,7 @@ func _unhandled_input(event):
 		# if the player releases his touch from the screen aka drops the card(s) they're dragging
 		elif !event.pressed && event.index == _current_input:
 			
-			# we disable the button detection so that they don't catch our finger input while dragging a card
+			# enable button detection when releasing touch/click
 			_game_scene._enable_all_buttons_detection()
 			
 			# makes sure that the player is holding card(s) before calling drop stack
@@ -284,20 +256,12 @@ func _pick_stack(card_stack: Array, touch_pos: Vector2):
 
 func _stack_is_suit(sliced_stack: Array) -> bool:
 	if sliced_stack.size() == 1:
-
 		return true
 	
 	for i in range(1, sliced_stack.size(), +1):
-		
 		# if the card [i] is not a suite of card[i-1]
 		if !sliced_stack[i]._is_suite_of(sliced_stack[i-1]):
-
 			return false
-	
-
-	for card in sliced_stack :
-		pass	
-
 	return true
 
 func _pick_card(card: Card, touch_pos: Vector2):
@@ -325,13 +289,8 @@ func _drop_stack(drop_pos : Vector2):
 				if _stack_slots[i]._has_point(_held_stack[0].position) || _stack_slots[i]._has_point(drop_pos) :
 					
 					_cancel_drag()
-
 					_remove_cards_from_previous_stack()
-				
-						
 					_append_cards_to_new_stack(i)
-
-						
 					_held_stack.clear()
 					
 					_update_board_state()
@@ -343,14 +302,12 @@ func _drop_stack(drop_pos : Vector2):
 			if card._has_point(_held_stack[0].position) || card._has_point(drop_pos) :
 				# if the first card of the stack the player is holding is a valid suite to the card it's dropped on
 				if _held_stack[0]._is_suite_of(card):
-
+					
 					_cancel_drag()
-
+					
 					_remove_cards_from_previous_stack()
 					
-
 					_append_cards_to_new_stack(i)
-					
 					
 					_held_stack.clear()
 					
@@ -381,8 +338,6 @@ func _drop_stack(drop_pos : Vector2):
 					_update_board_state()
 					return
 		
-		
-		
 		# if the card's number we're holding is the next card in its color trail
 		# we're checking if we're dropping on its slot, in which case the player forcefully
 		# discards a card, even if it could be useful hence not automatically discarded
@@ -398,11 +353,9 @@ func _drop_stack(drop_pos : Vector2):
 					
 					_held_stack.clear()
 					
+					
 					_update_board_state()
 					return
-		
-		
-		
 		# use garbage slots to help debug
 		for i in _garbage_slots.size():
 			var slot = _garbage_slots[i]
@@ -410,22 +363,19 @@ func _drop_stack(drop_pos : Vector2):
 				_cancel_drag()
 				_remove_cards_from_previous_stack()
 				_snap_to_slot(card, slot.position)
-
 				if slot._held_card != null:
 					card.z_index = slot._held_card.z_index +1
 				slot._held_card = card
-
 				_held_stack.clear()
-
 				_update_board_state()
 				return
-	
 	
 	# if no slot contained the drop_pos point, cancel the drop
 	_cancel_drop()
 
 func _update_board_state():
 	_disable_input()
+	_increase_move_amount()
 	_discard_available_cards()
 
 func _finish_update_board_state():
@@ -447,7 +397,7 @@ func _finish_update_board_state():
 
 func _discard_available_cards(discarded_cards : int = 0):
 	
-	
+	var initial_key = _game_scene._game_key
 	var check_left = false
 	
 	var discards = discarded_cards
@@ -460,16 +410,12 @@ func _discard_available_cards(discarded_cards : int = 0):
 		
 		if(_is_discardable(card)):
 			
-			
-			
 			stack.pop_back()
 			
 			await _discard_card(card, true, discards)
 			discards += 1
 			
 			check_left = true
-			
-
 	
 	for slot in _trail_slots:
 		
@@ -489,6 +435,9 @@ func _discard_available_cards(discarded_cards : int = 0):
 			
 			check_left = true
 			
+	
+	if initial_key != _game_scene._game_key :
+		return
 	
 	if check_left:
 		_discard_available_cards(discards)
@@ -514,17 +463,15 @@ func _is_discardable(card: Card) -> bool:
 	return false
 
 func _discard_card(card: Card, tween_to_slot := true, speed_modifier : float = 0):
-	
-	
 	if card._number != null :
 		card.z_index = card._number
 	else :
 		card.z_index = card.get_index()*0.2 +1
 		
 	if tween_to_slot:
+		
 		_game_scene._play_slide_sound()
 		card._tween_to_position(_discard_slots[card._color].position, _tween_speed * 0.8)
-
 		
 		var modified_delay = _discard_delay - (speed_modifier *0.025)
 		if modified_delay < 0.08:
@@ -534,7 +481,6 @@ func _discard_card(card: Card, tween_to_slot := true, speed_modifier : float = 0
 	_color_trails[card._color] = card._number
 
 func _check_beasts():
-	
 	var card
 	
 	var slot_is_free := false
@@ -597,10 +543,14 @@ func _discard_beast():
 	_is_selecting_pirates = false
 	
 	var beast_is_in_trail = _selected_beast_index >= _card_stacks.size()
+	var beast
 	
 	if beast_is_in_trail:
 		_beast_discard_slot = _trail_slots[_selected_beast_index - _card_stacks.size()]
 		_beast_discard_slot._held_card.z_index = 9
+		_beast_discard_slot._held_card.position.y -= 1
+		
+		beast = _beast_discard_slot._held_card
 		
 	else:
 		for slot in _trail_slots:
@@ -611,13 +561,22 @@ func _discard_beast():
 				_beast_discard_slot = slot
 				
 				# since we know the beast is not in the trail, we discard it here
-				var beast = _card_stacks[_selected_beast_index].pop_back() as Card
+				beast = _card_stacks[_selected_beast_index].pop_back() as Card
+				
 				beast.z_index = 9
+				beast._discard_beast = true
 				beast._tween_to_position(_beast_discard_slot.position)
 				_game_scene._play_slide_sound()
 				
 				break
 	
+	
+	if beast._name == "Fregate":
+		_game_scene._fregate_button.modulate = Color(Color.WHITE,0.5)
+	elif beast._name == "Kraken":
+		_game_scene._kraken_button.modulate = Color(Color.WHITE,0.5)
+	else:
+		_game_scene._mobydick_button.modulate = Color(Color.WHITE,0.5)
 	
 	await _discard_pirates(_beast_discard_slot.position)
 	_beast_discard_slot.lock()
@@ -664,11 +623,8 @@ func _selected_pirates() -> Array [Card]:
 	return selected_pirates
 
 func _discard_pirates(slot_pos : Vector2):
-	
 	# we iterate through the 2 selected pirates thanks to their stack index, we use pop_back
 	# to get their card reference and remove them from their stack at the same time
-
-		
 	var pirate : Card
 		
 	if _selected_pirates_index[0] < _card_stacks.size():
@@ -697,7 +653,6 @@ func _discard_pirates(slot_pos : Vector2):
 	pirate._tween_to_position(slot_pos)
 	_game_scene._play_slide_sound()
 	
-#	await  pirate._tween.finished
 	await get_tree().create_timer(_discard_delay*2).timeout
 	
 func _cancel_drag():
@@ -705,11 +660,7 @@ func _cancel_drag():
 		card._remove_drag_component()
 
 func _append_cards_to_new_stack(stack_index : int):
-	
-	
 	for i in range(0, _held_stack.size(), +1) :
-		
-#		_snap_to_card(_held_stack[i], _card_stacks[stack_index].back().position)
 		_add_to_stack(_held_stack[i], stack_index)
 
 func _snap_to_card(card : Card, card_pos : Vector2):
@@ -729,8 +680,6 @@ func _add_to_stack(card: Card, stack_index: int, snap_card := true):
 			_snap_to_slot(card, _stack_slots[stack_index].position)
 		else:
 			_snap_to_card(card, _card_stacks[stack_index].back().position)
-	
-	
 	
 	_card_stacks[stack_index].push_back(card)
 	card.z_index = _card_stacks[stack_index].find(card)
@@ -757,13 +706,11 @@ func _stack_slot_pos(stack_index : int) -> Vector2:
 	return _stack_slots[stack_index].position
 
 func _enable_input():
-	_game_scene._new_game_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	_can_play = true
 	
-	
+
 func _disable_input():
 	_game_scene._disable_beast_buttons()
-	_game_scene._new_game_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_can_play = false
 
 func _has_won() -> bool:
@@ -801,24 +748,29 @@ func _reset_board_data():
 	
 	_held_stack_index = 0
 	
+	_game_scene._fregate_button.modulate = Color.WHITE
+	_game_scene._mobydick_button.modulate = Color.WHITE
+	_game_scene._kraken_button.modulate = Color.WHITE
+	
+	_move_amount = -1
+	
 func _add_stack_slot(slot: Slot):
 	_card_stacks.push_back([])
 	_stack_slots.push_back(slot)
 
 func _add_trail_slot(slot: Slot):
 	_trail_slots.push_back(slot)
-	
+
 func _add_garbage_slot(slot: Slot):
 	_garbage_slots.push_back(slot)
 
+func _increase_move_amount():
+	_move_amount += 1
 
 func _on_beast_button_pressed(button):
-
-
 	var toggled_button = _beasts_button_group.get_pressed_button()
 	
 	if toggled_button != null:
-
 		
 		if toggled_button.name == "FregateButton":
 			_selected_beast_index = _fregate_index
@@ -835,7 +787,6 @@ func _on_beast_button_pressed(button):
 		
 		
 	else:
-
 		
 		_is_selecting_pirates = false
 		
@@ -843,5 +794,3 @@ func _on_beast_button_pressed(button):
 			card._toggle()
 		_selected_pirates_index.clear()
 		
-	
-	

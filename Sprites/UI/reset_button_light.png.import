@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bicpbspe450mw"
-path="res://.godot/imported/Fregate_Button.png-31606bb3565ea4ff99ee0c82475fb6bf.ctex"
+uid="uid://b0lbqsm1csys1"
+path="res://.godot/imported/reset_button_light.png-e84fdcff75d00d35e107bae5c13e2080.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Fregate_Button.png"
-dest_files=["res://.godot/imported/Fregate_Button.png-31606bb3565ea4ff99ee0c82475fb6bf.ctex"]
+source_file="res://Sprites/UI/reset_button_light.png"
+dest_files=["res://.godot/imported/reset_button_light.png-e84fdcff75d00d35e107bae5c13e2080.ctex"]
 
 [params]
 

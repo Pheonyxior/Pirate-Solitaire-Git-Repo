@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://hb8k5w83n6v7"]
+[gd_scene load_steps=46 format=3 uid="uid://hb8k5w83n6v7"]
 
 [ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="1_fkwdd"]
 [ext_resource type="Texture2D" uid="uid://7cyu7ah3j2rv" path="res://Sprites/UI/tuto border.png" id="2_5f45k"]
@@ -32,19 +32,36 @@
 [ext_resource type="Texture2D" uid="uid://cs3gnekih50xw" path="res://Sprites/cards/6Shrk Pirate Card.png" id="24_5kddy"]
 [ext_resource type="Texture2D" uid="uid://dosjrmqgk1anv" path="res://Sprites/UI/ok_icon.png" id="24_awc2k"]
 [ext_resource type="Texture2D" uid="uid://de0q8upuwavkr" path="res://Sprites/cards/3Shrk Pirate Card.png" id="24_cql4v"]
-[ext_resource type="Texture2D" uid="uid://bb8hsyqmiw85g" path="res://Sprites/UI/Mobydick_Button_Highlight.png" id="24_qbgci"]
 [ext_resource type="Texture2D" uid="uid://b7tu78wuhj02k" path="res://Sprites/UI/close_button.png" id="24_u8spm"]
 [ext_resource type="Texture2D" uid="uid://brmghklv8l31q" path="res://Sprites/UI/x_icon.png" id="25_t4fa0"]
 [ext_resource type="Texture2D" uid="uid://c83pik8iol0n7" path="res://Sprites/cards/3Whl Pirate Card.png" id="26_6d0q7"]
 [ext_resource type="Texture2D" uid="uid://ceryqka6hewh8" path="res://Sprites/cards/2Seag Pirate Card.png" id="27_o0or2"]
+[ext_resource type="Texture2D" uid="uid://douiqrgno36jr" path="res://Sprites/UI/Kraken_Button_Highlight.png" id="35_tv6d0"]
+[ext_resource type="Texture2D" uid="uid://jj72cl5g71on" path="res://Sprites/UI/+_button.png" id="36_8flxe"]
+[ext_resource type="Texture2D" uid="uid://bbjxsfaob2yt8" path="res://Sprites/UI/reset_button.png" id="37_wtqcq"]
+[ext_resource type="Texture2D" uid="uid://b5no0wxj816kf" path="res://Sprites/UI/volume_button_toggled.png" id="38_f6r4h"]
+[ext_resource type="Texture2D" uid="uid://b3a22kkeoowfr" path="res://Sprites/UI/Grabber_Highlight.png" id="39_v4ia2"]
+[ext_resource type="Texture2D" uid="uid://byatyc5f1lvua" path="res://Sprites/UI/Fregate_Button_Light.png" id="40_e27b6"]
+[ext_resource type="Texture2D" uid="uid://cvhqmlwvnn0w3" path="res://Sprites/UI/Kraken_Button_Light.png" id="41_6qspf"]
 
-[node name="Tutorial" type="Control" node_paths=PackedStringArray("_tutorial_parts")]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_bwtsv"]
+color = Color(0.253906, 0.15625, 0.15625, 1)
+grow_begin = -1.0
+grow_end = -1.0
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_fko53"]
+color = Color(0.890625, 0.8125, 0.734375, 1)
+grow_begin = -1.0
+grow_end = -1.0
+thickness = 4
+
+[node name="Tutorial" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 220.0
 offset_bottom = 150.0
 script = ExtResource("1_fkwdd")
-_tutorial_parts = [NodePath("fond/part1"), NodePath("fond/part2"), NodePath("fond/part3"), NodePath("fond/part4"), NodePath("fond/part5"), NodePath("fond/part6"), NodePath("fond/part7")]
 
 [node name="fond" type="ColorRect" parent="."]
 z_index = 300
@@ -74,7 +91,7 @@ scale = Vector2(0.96, 1)
 texture = ExtResource("2_5f45k")
 centered = false
 
-[node name="part1" type="Control" parent="fond"]
+[node name="part1" type="Control" parent="fond" groups=["Tutorial Parts"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 220.0
@@ -101,19 +118,16 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="TSlot1" parent="fond/part1" instance=ExtResource("3_8rkve")]
-visible = false
 modulate = Color(1.2, 1.2, 1.2, 1)
 position = Vector2(45, 23)
 script = null
 
 [node name="TSlot2" parent="fond/part1" instance=ExtResource("3_8rkve")]
-visible = false
 modulate = Color(1.2, 1.2, 1.2, 1)
 position = Vector2(71, 23)
 script = null
 
 [node name="TSlot3" parent="fond/part1" instance=ExtResource("3_8rkve")]
-visible = false
 modulate = Color(1.2, 1.2, 1.2, 1)
 position = Vector2(97, 23)
 script = null
@@ -160,19 +174,31 @@ texture = ExtResource("6_ea16s")
 position = Vector2(175, 23)
 texture = ExtResource("7_11dck")
 
-[node name="MobydickPirateCard" type="Sprite2D" parent="fond/part1"]
+[node name="MobydickPirateCard2" type="Sprite2D" parent="fond/part1"]
 position = Vector2(45, 23)
+texture = ExtResource("8_idvo7")
+
+[node name="MobydickPirateCard" type="Sprite2D" parent="fond/part1"]
+position = Vector2(45, 22)
 texture = ExtResource("8_idvo7")
 
 [node name="KrakenPirateCard" type="Sprite2D" parent="fond/part1"]
 position = Vector2(71, 23)
 texture = ExtResource("9_i0s6j")
 
+[node name="KrakenPirateCard2" type="Sprite2D" parent="fond/part1"]
+position = Vector2(71, 22)
+texture = ExtResource("9_i0s6j")
+
 [node name="FregatePirateCard" type="Sprite2D" parent="fond/part1"]
 position = Vector2(97, 23)
 texture = ExtResource("10_utk5q")
 
-[node name="part2" type="Control" parent="fond"]
+[node name="FregatePirateCard2" type="Sprite2D" parent="fond/part1"]
+position = Vector2(97, 22)
+texture = ExtResource("10_utk5q")
+
+[node name="part2" type="Control" parent="fond" groups=["Tutorial Parts"]]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -253,7 +279,7 @@ texture = ExtResource("15_1s1cc")
 position = Vector2(71, 81)
 texture = ExtResource("16_o2wqu")
 
-[node name="part3" type="Control" parent="fond"]
+[node name="part3" type="Control" parent="fond" groups=["Tutorial Parts"]]
 visible = false
 texture_filter = 1
 layout_mode = 1
@@ -391,7 +417,7 @@ texture = ExtResource("26_6d0q7")
 position = Vector2(0, 8)
 texture = ExtResource("27_o0or2")
 
-[node name="part4" type="Control" parent="fond"]
+[node name="part4" type="Control" parent="fond" groups=["Tutorial Parts"]]
 visible = false
 texture_filter = 1
 layout_mode = 1
@@ -496,7 +522,7 @@ modulate = Color(1.2, 1.2, 1.2, 1)
 position = Vector2(175, 61)
 script = null
 
-[node name="part5" type="Control" parent="fond"]
+[node name="part5" type="Control" parent="fond" groups=["Tutorial Parts"]]
 visible = false
 texture_filter = 1
 layout_mode = 1
@@ -534,7 +560,6 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="TSlot1" parent="fond/part5" instance=ExtResource("3_8rkve")]
-visible = false
 modulate = Color(1.2, 1.2, 1.2, 1)
 position = Vector2(134, 44)
 script = null
@@ -562,6 +587,11 @@ position = Vector2(134, 44)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_p7df4")
 
+[node name="MobydickPirateCard3" type="Sprite2D" parent="fond/part5"]
+position = Vector2(134, 43)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_p7df4")
+
 [node name="MobydickPirateCard" type="Sprite2D" parent="fond/part5"]
 position = Vector2(43, 49)
 texture = ExtResource("19_p7df4")
@@ -576,7 +606,7 @@ position = Vector2(121, 79)
 texture = ExtResource("21_py1rn")
 centered = false
 
-[node name="part6" type="Control" parent="fond"]
+[node name="part6" type="Control" parent="fond" groups=["Tutorial Parts"]]
 visible = false
 texture_filter = 1
 layout_mode = 1
@@ -730,7 +760,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="part7" type="Control" parent="fond"]
+[node name="part7" type="Control" parent="fond" groups=["Tutorial Parts"]]
 visible = false
 texture_filter = 1
 layout_mode = 1
@@ -788,12 +818,11 @@ texture = ExtResource("18_rjihr")
 
 [node name="MobydickPirateCard" type="Sprite2D" parent="fond/part7"]
 position = Vector2(71, 65)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("19_p7df4")
+texture = ExtResource("9_i0s6j")
 
 [node name="MobydickButtonLHl" type="Sprite2D" parent="fond/part7"]
 position = Vector2(171, 38)
-texture = ExtResource("24_qbgci")
+texture = ExtResource("35_tv6d0")
 centered = false
 
 [node name="TSlot1" parent="fond/part7" instance=ExtResource("3_8rkve")]
@@ -845,6 +874,294 @@ centered = false
 position = Vector2(121, 27)
 texture = ExtResource("21_py1rn")
 centered = false
+
+[node name="part8" type="Control" parent="fond" groups=["Tutorial Parts"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 220.0
+offset_bottom = 150.0
+
+[node name="Label" type="Label" parent="fond/part8"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -47.0
+offset_right = 109.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "User Interface"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="+Button" type="Sprite2D" parent="fond/part8"]
+position = Vector2(64, 81)
+texture = ExtResource("36_8flxe")
+
+[node name="Label5" type="Label" parent="fond/part8/+Button"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -26.0
+offset_right = 127.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "Hold press to 
+start a new game"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ResetButton" type="Sprite2D" parent="fond/part8"]
+position = Vector2(64, 49)
+texture = ExtResource("37_wtqcq")
+
+[node name="Label4" type="Label" parent="fond/part8/ResetButton"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -26.0
+offset_right = 127.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "Hold press to restart the game"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VolumeButtonToggled" type="Sprite2D" parent="fond/part8"]
+position = Vector2(36, 81)
+texture = ExtResource("38_f6r4h")
+
+[node name="Volume Slider" type="HSlider" parent="fond/part8/VolumeButtonToggled"]
+texture_filter = 1
+offset_left = -8.99982
+offset_top = -11.0
+offset_right = 41.0002
+offset_bottom = -2.99997
+rotation = -1.5708
+mouse_filter = 2
+theme_override_icons/grabber = ExtResource("39_v4ia2")
+theme_override_icons/grabber_highlight = ExtResource("39_v4ia2")
+theme_override_icons/grabber_disabled = ExtResource("39_v4ia2")
+theme_override_styles/slider = SubResource("StyleBoxLine_bwtsv")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_fko53")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_fko53")
+max_value = 1.0
+step = 0.02
+value = 0.5
+editable = false
+scrollable = false
+
+[node name="Music Volume Slider" type="HSlider" parent="fond/part8/VolumeButtonToggled"]
+texture_filter = 1
+offset_left = 1.00018
+offset_top = -11.0
+offset_right = 51.0002
+offset_bottom = -2.99997
+rotation = -1.5708
+mouse_filter = 2
+theme_override_icons/grabber = ExtResource("39_v4ia2")
+theme_override_icons/grabber_highlight = ExtResource("39_v4ia2")
+theme_override_icons/grabber_disabled = ExtResource("39_v4ia2")
+theme_override_styles/slider = SubResource("StyleBoxLine_bwtsv")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_fko53")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_fko53")
+max_value = 1.0
+step = 0.02
+value = 0.5
+editable = false
+scrollable = false
+
+[node name="Label2" type="Label" parent="fond/part8/VolumeButtonToggled"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -94.0
+offset_right = 102.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "Sound volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Line2D" type="Line2D" parent="fond/part8/VolumeButtonToggled/Label2"]
+position = Vector2(10, 11)
+points = PackedVector2Array(-2, -3, -26, 6)
+width = 1.0
+
+[node name="Line2D2" type="Line2D" parent="fond/part8/VolumeButtonToggled/Label2"]
+position = Vector2(10, 11)
+points = PackedVector2Array(-2, 7, -11, 10)
+width = 1.0
+
+[node name="Label3" type="Label" parent="fond/part8/VolumeButtonToggled"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -82.0
+offset_right = 102.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "Music Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="part9" type="Control" parent="fond" groups=["Tutorial Parts"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 220.0
+offset_bottom = 150.0
+
+[node name="Label" type="Label" parent="fond/part9"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -47.0
+offset_right = 109.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "User Interface"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="FregatePirateCard" type="Sprite2D" parent="fond/part9"]
+position = Vector2(162, 81)
+texture = ExtResource("10_utk5q")
+
+[node name="KrakenPirateCard" type="Sprite2D" parent="fond/part9"]
+position = Vector2(162, 50)
+texture = ExtResource("9_i0s6j")
+
+[node name="MobydickPirateCard" type="Sprite2D" parent="fond/part9"]
+position = Vector2(162, 19)
+texture = ExtResource("8_idvo7")
+
+[node name="FregateButtonLight" type="Sprite2D" parent="fond/part9"]
+position = Vector2(45, 71)
+texture = ExtResource("40_e27b6")
+centered = false
+
+[node name="Label7" type="Label" parent="fond/part9/FregateButtonLight"]
+anchors_preset = -1
+anchor_left = 0.952
+anchor_top = 0.048
+anchor_right = 0.952
+anchor_bottom = 0.048
+offset_left = 3.008
+offset_top = 4.992
+offset_right = 83.008
+offset_bottom = 14.992
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "Discards"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="KrakenButtonLight" type="Sprite2D" parent="fond/part9"]
+position = Vector2(45, 40)
+texture = ExtResource("41_6qspf")
+centered = false
+
+[node name="Label6" type="Label" parent="fond/part9/KrakenButtonLight"]
+anchors_preset = -1
+anchor_left = 1.095
+anchor_top = 0.19
+anchor_right = 1.095
+anchor_bottom = 0.19
+offset_left = 0.00499916
+offset_top = 2.01
+offset_right = 80.005
+offset_bottom = 12.01
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "Discards"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MobydickButtonLight" type="Sprite2D" parent="fond/part9"]
+position = Vector2(45, 8)
+texture = ExtResource("22_1mpjt")
+centered = false
+
+[node name="Label5" type="Label" parent="fond/part9/MobydickButtonLight"]
+anchors_preset = -1
+anchor_left = 1.095
+anchor_top = 0.19
+anchor_right = 1.095
+anchor_bottom = 0.19
+offset_left = 0.00499916
+offset_top = 2.01
+offset_right = 80.005
+offset_bottom = 12.01
+grow_horizontal = 2
+grow_vertical = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 8
+text = "Discards"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Previous button" type="TextureButton" parent="fond"]
 layout_mode = 0
