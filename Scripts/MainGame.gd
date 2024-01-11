@@ -161,7 +161,7 @@ func _new_game(restart_game := false):
 	
 	seed(_rand.seed)
 	_current_deck.shuffle()
-#	await _distribute_deck()
+	await _distribute_deck()
 	_on_card_distribution_finished()
 
 func _play_pick_sound():
