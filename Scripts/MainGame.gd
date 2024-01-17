@@ -13,8 +13,8 @@ const _input_wait_time = 0.5
 
 @onready var _win_count_label : Label = $"Win Count Label"
 
-@onready var _current_seed_line : LineEdit = $"GameSeedPanel/Current/currentSeed"
-@onready var _seed_line_edit : LineEdit = $GameSeedPanel/Next/seedLineEdit
+@onready var _current_seed_line : LineEdit = $"SeedEditPanel/Current/currentSeed"
+@onready var _seed_line_edit : LineEdit = $SeedEditPanel/Next/seedLineEdit
 
 var _deck : Array [Card]
 var _current_deck : Array [Card]

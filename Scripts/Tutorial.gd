@@ -8,8 +8,7 @@ func _ready():
 	var parts = get_tree().get_nodes_in_group("Tutorial Parts")
 	for part in parts:
 		_tutorial_parts.push_back(part)
-#		print(part.name)
-	
+
 
 
 func _on_previous_button_down():
@@ -31,15 +30,8 @@ func _on_next_button_down():
 	
 	_tutorial_parts[_index].visible = true
 	
-	var i = 735477312704535067
-	var str = String.num_int64(i,36, true)
-	var ascii = str.to_ascii_buffer()
-	
-	var r = str.to_int()
-	
-	print(str)
-	print(ascii)
-	print(r)
+
+
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://elcwd3pr7sox"]
+[gd_scene load_steps=56 format=3 uid="uid://elcwd3pr7sox"]
 
 [ext_resource type="Script" path="res://Scripts/MainGame.gd" id="1_886r8"]
 [ext_resource type="PackedScene" uid="uid://cppxqvqmd0gtw" path="res://00_Scènes/Slot.tscn" id="3_i0yq2"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://ckiu3elpn3fpq" path="res://Sprites/Seag Back.png" id="26_84imt"]
 [ext_resource type="Texture2D" uid="uid://bxvvdphyisgre" path="res://Sprites/UI/exit_icon_toggled.png" id="26_b3boc"]
 [ext_resource type="Script" path="res://Scripts/CustomButton.gd" id="27_qgwli"]
+[ext_resource type="Script" path="res://Scripts/RichHyperlink.gd" id="27_xgjj8"]
 [ext_resource type="Texture2D" uid="uid://cliohcdg0yfo5" path="res://Sprites/UI/+_button_toggled.png" id="29_q63n2"]
 [ext_resource type="Script" path="res://Scripts/DoubleClickButton.gd" id="30_c6kiw"]
 [ext_resource type="Script" path="res://Scripts/BaseControl.gd" id="30_f8kc5"]
@@ -207,7 +208,7 @@ texture_pressed = ExtResource("9_x53o8")
 texture_disabled = ExtResource("10_t1am2")
 stretch_mode = 3
 
-[node name="GameSeedPanel" type="Panel" parent="."]
+[node name="SeedEditPanel" type="Panel" parent="."]
 visible = false
 show_behind_parent = true
 z_index = 201
@@ -226,7 +227,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7v6ty")
 script = ExtResource("30_f8kc5")
 
-[node name="Current" type="Label" parent="GameSeedPanel"]
+[node name="Current" type="Label" parent="SeedEditPanel"]
 layout_mode = 0
 offset_right = 154.0
 offset_bottom = 11.0
@@ -237,7 +238,7 @@ text = "Current deal seed"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="currentSeed" type="LineEdit" parent="GameSeedPanel/Current" groups=["UI Interactibles"]]
+[node name="currentSeed" type="LineEdit" parent="SeedEditPanel/Current" groups=["UI Interactibles"]]
 layout_mode = 0
 offset_left = -4.0
 offset_top = 13.0
@@ -258,7 +259,7 @@ flat = true
 caret_blink = true
 script = ExtResource("16_whawu")
 
-[node name="Next" type="Label" parent="GameSeedPanel"]
+[node name="Next" type="Label" parent="SeedEditPanel"]
 layout_mode = 0
 offset_top = 30.0
 offset_right = 154.0
@@ -270,7 +271,7 @@ text = "Next deal seed"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="seedLineEdit" type="LineEdit" parent="GameSeedPanel/Next" groups=["UI Interactibles"]]
+[node name="seedLineEdit" type="LineEdit" parent="SeedEditPanel/Next" groups=["UI Interactibles"]]
 layout_mode = 0
 offset_left = -4.0
 offset_top = 13.0
@@ -287,7 +288,7 @@ flat = true
 caret_blink = true
 script = ExtResource("16_whawu")
 
-[node name="Close Button" type="Button" parent="GameSeedPanel" groups=["UI Interactibles"]]
+[node name="Close Button" type="Button" parent="SeedEditPanel" groups=["UI Interactibles"]]
 self_modulate = Color(0.913725, 0.847059, 0.780392, 1)
 layout_mode = 0
 offset_left = 139.0
@@ -430,6 +431,7 @@ grow_vertical = 2
 theme = SubResource("Theme_0jafs")
 theme_override_constants/line_separation = 2
 theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
 text = "Programming, art,
 sound design,
 game design by 
@@ -456,9 +458,9 @@ Icon by HeartBeast
 If you enjoy the game,
 please consider 
 donating at 
-victor-pernet.itch.io
-/pirate-solitaire"
+"
 autowrap_mode = 1
+script = ExtResource("27_xgjj8")
 
 [node name="Exit button" type="TextureButton" parent="." groups=["UI Interactibles"]]
 texture_filter = 1
@@ -720,20 +722,21 @@ position = Vector2(96, 17)
 texture = ExtResource("4_bthxh")
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
-[connection signal="_seed_changed" from="GameSeedPanel/Next/seedLineEdit" to="." method="_on_seed_line_edit_changed"]
-[connection signal="button_up" from="GameSeedPanel/Close Button" to="GameSeedPanel" method="_on_close_button_button_up"]
+[connection signal="_seed_changed" from="SeedEditPanel/Next/seedLineEdit" to="." method="_on_seed_line_edit_changed"]
+[connection signal="button_up" from="SeedEditPanel/Close Button" to="SeedEditPanel" method="_on_close_button_button_up"]
 [connection signal="toggled" from="Volume Button" to="Volume Button/Volume Slider" method="_on_volume_button_toggled"]
 [connection signal="toggled" from="Volume Button" to="Volume Button/Music Volume Slider" method="_on_volume_button_toggled"]
 [connection signal="value_changed" from="Volume Button/Volume Slider" to="Volume Button/Volume Slider" method="_on_value_changed"]
 [connection signal="value_changed" from="Volume Button/Music Volume Slider" to="Volume Button/Music Volume Slider" method="_on_value_changed"]
 [connection signal="button_down" from="Help Button" to="." method="_on_help_button_down"]
 [connection signal="toggled" from="Credits button" to="Credits panel" method="_on_button_toggled"]
+[connection signal="meta_clicked" from="Credits panel/content" to="Credits panel/content" method="_on_meta_clicked"]
 [connection signal="button_down" from="Exit button" to="Exit button" method="_on_button_down"]
 [connection signal="button_up" from="Exit button" to="Exit button" method="_on_button_up"]
 [connection signal="long_press" from="Exit button" to="." method="_on_exit_button_long_press"]
 [connection signal="button_down" from="New Game Button" to="New Game Button" method="_on_button_down"]
 [connection signal="button_up" from="New Game Button" to="New Game Button" method="_on_button_up"]
-[connection signal="double_click" from="New Game Button" to="GameSeedPanel" method="_on_new_game_button_double_click"]
+[connection signal="double_click" from="New Game Button" to="SeedEditPanel" method="_on_new_game_button_double_click"]
 [connection signal="long_press" from="New Game Button" to="." method="_on_new_game_button_long_press"]
 [connection signal="button_down" from="Restart Game Button" to="Restart Game Button" method="_on_button_down"]
 [connection signal="button_up" from="Restart Game Button" to="Restart Game Button" method="_on_button_up"]
