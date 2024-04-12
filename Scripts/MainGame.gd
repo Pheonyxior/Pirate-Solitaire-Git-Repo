@@ -39,6 +39,8 @@ var _game_key : bool
 var _next_seed := -1
 @onready var _rand := RandomNumberGenerator.new()
 
+
+
 func _enter_tree():
 	CardManager._game_scene = self
 
@@ -106,6 +108,7 @@ func _distribute_deck():
 	await get_tree().create_timer(_input_wait_time).timeout
 	if _game_key != initial_key:
 		return
+	_on_card_distribution_finished()
 
 func _on_card_distribution_finished():
 	CardManager._update_board_state()
@@ -134,6 +137,7 @@ func _new_game(restart_game := false):
 	
 	_game_key = !_game_key 
 	
+	
 	if not _victory_screen_instance == null:
 		_hide_victory_screen()
 	
@@ -150,7 +154,6 @@ func _new_game(restart_game := false):
 		else :
 			_rand.randomize()
 	
-	print(_rand.seed)
 	var str := str(_rand.seed)
 	if str.begins_with('-'):
 		str[0] = '_'
@@ -162,7 +165,7 @@ func _new_game(restart_game := false):
 	seed(_rand.seed)
 	_current_deck.shuffle()
 	await _distribute_deck()
-	_on_card_distribution_finished()
+	
 
 func _play_pick_sound():
 	_pickdrop_audio_player.stream = _pick_sound

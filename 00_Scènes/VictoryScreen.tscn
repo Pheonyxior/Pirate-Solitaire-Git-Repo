@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ctd27n5t2nuwm"]
+[gd_scene load_steps=18 format=3 uid="uid://ctd27n5t2nuwm"]
 
 [ext_resource type="Texture2D" uid="uid://cufye6kpkepnt" path="res://Sprites/Victory Sprite.png" id="1_g6iyl"]
 [ext_resource type="Script" path="res://Scripts/VictorySprite.gd" id="2_yae0o"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dcl0jxtxubkso" path="res://Sprites/eye/SkullKing Eye Thin Anim12.png" id="14_4r10v"]
 [ext_resource type="Texture2D" uid="uid://bacelgs3o5xxu" path="res://Sprites/eye/SkullKing Eye Thin Anim13.png" id="15_cidu0"]
 [ext_resource type="AudioStream" uid="uid://cb42ibcy8e0br" path="res://Sounds/Pirate solitaire Jingle victoire.mp3" id="16_2tmxd"]
-[ext_resource type="Script" path="res://Scripts/MoveCountLabel.gd" id="17_ntrfl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_307xs"]
 animations = [{
@@ -69,7 +68,7 @@ animations = [{
 texture_filter = 1
 
 [node name="Victory sprite" type="Sprite2D" parent="."]
-position = Vector2(110, 106)
+position = Vector2(109, 114)
 texture = ExtResource("1_g6iyl")
 offset = Vector2(0, -10)
 region_enabled = true
@@ -90,14 +89,15 @@ volume_db = -12.0
 bus = &"Sfx"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 39.0
+offset_left = 52.0
 offset_top = 139.0
-offset_right = 179.0
+offset_right = 204.0
 offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -107,4 +107,3 @@ theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 scroll_active = false
 autowrap_mode = 2
-script = ExtResource("17_ntrfl")

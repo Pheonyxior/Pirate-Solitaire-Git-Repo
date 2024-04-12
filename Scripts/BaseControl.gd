@@ -10,3 +10,4 @@ func _on_new_game_button_double_click():
 
 func _on_close_button_button_up():
 	visible = false
+

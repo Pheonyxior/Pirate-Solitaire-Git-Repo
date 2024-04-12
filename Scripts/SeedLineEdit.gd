@@ -6,6 +6,7 @@ func _ready():
 	text_changed.connect(_on_text_changed)
 
 func _on_text_changed(new_text):
+	
 	text = _format_text(new_text)
 	
 	caret_column = text.length()
@@ -14,18 +15,22 @@ func _on_text_changed(new_text):
 		var str := text
 		if str.begins_with('_'):
 			str[0] = '-'
-		_seed_changed.emit(int(text))
+		_seed_changed.emit(int(str))
 	else:
 		_seed_changed.emit(-1)
 
 func _format_text(new_text : String) -> String :
 	
-	var nt := new_text
+	var nt := new_text.replacen(" ", "")
+	
+	print(nt)
+	
 	var ft := ""
 	var max_l := 19
 	if nt.begins_with('_'):
 		ft += '_'
 		max_l += 1
+		print(ft)
 	
 	if nt.length() <= max_l:
 		for i in nt.length():
@@ -38,49 +43,23 @@ func _format_text(new_text : String) -> String :
 	
 	return ft
 
-#func _format_text(new_text) -> String :
-#	var start_time := Time.get_ticks_usec()
-#	var nt : String = new_text.replace(" ", "")
-#	var digit_count := 0
-#	var ft := ""
-#
-#	for char in nt:
-#		if char >= '0' and char <= '9':
-#			if digit_count % 3 == 0 and digit_count != 0:
-#				ft += " "
-#			ft += char
-#			digit_count += 1
-#
-#
-#	var end_time:= Time.get_ticks_usec()
-##	print("loop execution time :", end_time - start_time)
-#
-##	print(ft)
-#	return ft
+func _on_copy_button_button_down():
+	pass # Replace with function body.
+	print("_on_copy_button_button_down")
+	menu_option(MENU_SELECT_ALL)
+	menu_option(MENU_COPY)
+	caret_column += 1
+	#MENU_COPY
 
+func _on_paste_button_button_down():
+	pass # Replace with function body.
+	#text = DisplayServer.clipboard_get()
+	print("_on_paste_button_button_down")
+	clear()
+	menu_option(MENU_PASTE)
+	
+	
+	#MENU_PASTE
 
-
-#func _format_text(new_text) -> String :
-#	var start_time := Time.get_ticks_usec()
-#	#var nt : String = text.replace(" ", "")
-#	var nt := ""
-#	for str in new_text :
-#		if str >= '0' and str <= '9':
-#			nt += str
-#
-#	var comma_pos = nt.length() % 3
-#
-#	var ft := nt.substr(0, comma_pos)
-#
-#	while comma_pos < nt.length():
-#		if ft != "":
-#			ft += " "
-#		ft += nt.substr(comma_pos, 3)
-#		comma_pos += 3
-#
-#
-#	var end_time:= Time.get_ticks_usec()
-#	print("loop execution time :", end_time - start_time)
-#
-#	return ft
-
+func _on_clear_button_button_down():
+	clear()

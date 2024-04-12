@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmkbf4y4ctxwi"
-path="res://.godot/imported/1.png-6d2b00100180f662d075c43472ae6193.ctex"
+uid="uid://b68f4bsjp7j8f"
+path="res://.godot/imported/x_icon2.png-06855b6bce086febf7086ff70aa22ae8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fastlane/metadata/android/en-US/images/phoneScreenshots/1.png"
-dest_files=["res://.godot/imported/1.png-6d2b00100180f662d075c43472ae6193.ctex"]
+source_file="res://Sprites/UI/x_icon2.png"
+dest_files=["res://.godot/imported/x_icon2.png-06855b6bce086febf7086ff70aa22ae8.ctex"]
 
 [params]
 

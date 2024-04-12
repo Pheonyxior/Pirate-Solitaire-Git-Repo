@@ -1,0 +1,86 @@
+keys,en,fr
+TUTO1,"To win the round, discard all cards from the center of the table.","Pour gagner la partie, defaussez toute les cartes du centre de la table."
+TUTO2,"Cards can be stacked and moved in the center of the table, but only if they are of alternating suit and decreasing values.","Les cartes peuvent etre empilees et bougees au centre la table, si elles alternent de couleurs et sont de valeur decroissantes."
+TUTO3,"Discarded cards go to the top-right corner. Drag and drop a card to its corresponding suit, or double tap it, to discard it manually.","Les cartes sont defaussees en haut a droite. Glissez et deposez une carte sur sa couleur, ou double cliquez la, pour la defausser manuellement."
+TUTO4,"The free cells in the top-left corner of the table can store one card of any type.","Les cases en haut a gauche peuvent stocker une carte de n'importe quel type."
+TUTO5,"When a beast and at least two pirates are exposed, they can all be permanently moved to an open free cell by pushing the corresponding button,","Quand une bete et au moins deux pirates sont exposes, ils peuvent etre tous deplaces vers une case libre en appuyant sur le bouton correspondant,"
+TUTO6,"to make this move, the cell must be free for the beast, not for a pirate.","pour faire cette action, la case doit etre libre pour la bete, pas pour un pirate."
+TUTO7,"If more than two pirates are exposed, select the two to discard by touching them while the button is toggled.","Si plus de deux pirates sont exposes, selectionner les deux a defausser en les touchant pendant que le bouton est actif."
+TUTO8,"User Interface","Interface Utilisateur"
+TUTO8A,"   Hold      to restart
+   your round.","Tenez       enfonce pour recommencer la partie."
+TUTO8B,"   Hold      to exit
+   the game.","Tenez       enfonce pour quitter le jeu."
+TUTO8C,"Sound Volume","Effets sonnores"
+TUTO8D,"Music Volume","Musique"
+TUTO8E,"  Hold       to start a 
+  new round.","Tenez       enfonce pour commencer une nouvelle partie."
+TUTO8F,"Tap twice quickly to open the Seed Edit Panel.","Appuyez deux fois rapidement pour ouvrir le Panneau d'Edition de Seed."
+TUTO8G,"Discards","Defausse"
+TUTO9,"The Seed Edit Panel shows the seed of the round currently being played and allows the user to enter a new seed for the next round.","Le Panneau d'Edition de Seed montre la seed de la partie en cours et permet a l'utilisateur de rentrer une nouvelle seed pour la prochaine partie."
+TUTO10,"A seed is the number used to shuffle the deck. Starting two rounds with the same seed will result in the exact same card deal.","Une seed est le nombre utilise pour battre les cartes. Commencer deux parties avec la meme seed donnera la meme distribution."
+TUTO11,"When starting a new round the "Next deal seed" entered will be used. If the field is left empty the seed will be randomized.","En commencant une nouvelle partie la "Seed de distrib. suivante" rentree sera utilisee. Si le champ est laisse vide la seed sera genere aleatoirement."
+TUTO12,"Displayed seeds behave like most texts, for example they can be copied and pasted. ","Les seeds affiches se comportent comme la plupart des textes, elles peuvent etre copiees et collees par exemple."
+SEEDC,"Current deal seed","Seed de distrib. actuelle"
+SEEDN,"Next deal seed","Seed de distrib. suivante"
+SEEDP,"enter new seed","rentrer nouvelle seed"
+VS1,"Finished in : ","Finis en : "
+VS2," moves."," coups."
+CREDITS,"Programming, art, 
+sound design, 
+game design by 
+[color=#fae3aa]Victor Pernet[/color]
+
+using 
+[color=#fae3aa]Godot Game Engine[/color]
+
+Music and 
+victory jingle by 
+[color=#fae3aa]Nans de Jesus[/color]
+
+Sound effects :
+
+- [color=#fae3aa]f4ngy[/color] on 
+freesound.org
+
+- 54 Casino sound 
+effects by [color=#fae3aa]Kenney[/color]
+
+Boot Splash Godot 
+Icon by [color=#fae3aa]HeartBeast[/color]
+
+If you enjoy the game,
+please consider 
+donating at 
+[color=#fae3aa][url]https://victor-pernet.itch.io/pirate-solitaire[/url][/color]
+by clicking on the 
+Download Now button.","Programmation, art,
+sound design,
+game design par
+[color=#fae3aa]Victor Pernet[/color]
+
+fait avec
+[color=#fae3aa]Godot Game Engine[/color]
+
+Musique et
+jingle de victoire par 
+[color=#fae3aa]Nans de Jesus[/color]
+
+Effets sonores :
+
+- [color=#fae3aa]f4ngy[/color] sur 
+freesound.org
+
+- 54 Casino sound 
+effects par [color=#fae3aa]Kenney[/color]
+
+Icone Godot au
+lancement par 
+[color=#fae3aa]HeartBeast[/color]
+
+Si le jeu vous plait,
+vous pouvez 
+faire un don a 
+[color=#fae3aa][url]https://victor-pernet.itch.io/pirate-solitaire[/url][/color]
+en cliquant sur le 
+bouton Download Now."

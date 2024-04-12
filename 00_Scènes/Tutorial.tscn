@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://hb8k5w83n6v7"]
+[gd_scene load_steps=63 format=3 uid="uid://hb8k5w83n6v7"]
 
 [ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="1_fkwdd"]
 [ext_resource type="Texture2D" uid="uid://7cyu7ah3j2rv" path="res://Sprites/UI/tuto border.png" id="2_5f45k"]
@@ -45,6 +45,11 @@
 [ext_resource type="Texture2D" uid="uid://byatyc5f1lvua" path="res://Sprites/UI/Fregate_Button_Light.png" id="40_e27b6"]
 [ext_resource type="Texture2D" uid="uid://cvhqmlwvnn0w3" path="res://Sprites/UI/Kraken_Button_Light.png" id="41_6qspf"]
 [ext_resource type="Texture2D" uid="uid://cliohcdg0yfo5" path="res://Sprites/UI/+_button_toggled.png" id="43_dbpj6"]
+[ext_resource type="Texture2D" uid="uid://csy540uqadpk8" path="res://Sprites/UI/copy_icon.png" id="44_tkc3i"]
+[ext_resource type="Texture2D" uid="uid://b587uf5shk6ye" path="res://Sprites/UI/copyh_icon.png" id="45_v3c4c"]
+[ext_resource type="Texture2D" uid="uid://b68f4bsjp7j8f" path="res://Sprites/UI/x_icon2.png" id="46_oqavh"]
+[ext_resource type="Texture2D" uid="uid://bbljtumd726tm" path="res://Sprites/UI/paste_icon.png" id="47_avr0y"]
+[ext_resource type="Texture2D" uid="uid://cr1adevdieqi5" path="res://Sprites/UI/pasteh_icon.png" id="48_xmo22"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_bwtsv"]
 color = Color(0.253906, 0.15625, 0.15625, 1)
@@ -95,6 +100,12 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prjwy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_360m7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kk52d"]
+
 [node name="Tutorial" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -131,6 +142,7 @@ texture = ExtResource("2_5f45k")
 centered = false
 
 [node name="part1" type="Control" parent="fond" groups=["Tutorial Parts"]]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 220.0
@@ -148,10 +160,8 @@ offset_right = 109.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "To win the round, discard all cards from the center of the table."
+text = "TUTO1"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -256,10 +266,8 @@ offset_right = 109.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Cards can be stacked and moved in the center of the table, but only if they are of alternating suits and decreasing values."
+text = "TUTO2"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -347,10 +355,8 @@ offset_right = 109.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Discarded cards go to the top-right corner. Drag and drop a card to its corresponding suit, or double tap it, to discard it manually."
+text = "TUTO3"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -485,10 +491,8 @@ offset_right = 109.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "The free cells in the top-left corner of the table can store one card of any type."
+text = "TUTO4"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -590,10 +594,8 @@ offset_right = 109.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "When a beast and at least two pirates are exposed, they can all be permanently moved to an open free cell by pushing the corresponding button,"
+text = "TUTO5"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -660,6 +662,25 @@ offset_right = 110.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="fond/part6"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -51.0
+offset_right = 109.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "TUTO6"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="brown window" type="ColorRect" parent="fond/part6"]
 layout_mode = 0
@@ -778,27 +799,6 @@ modulate = Color(1, 0.588235, 0.588235, 1)
 position = Vector2(154, 69)
 texture = ExtResource("25_t4fa0")
 
-[node name="Label" type="Label" parent="fond/part6"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -109.0
-offset_top = -51.0
-offset_right = 109.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
-theme_override_font_sizes/font_size = 8
-text = "to make this move, the cell must be free for the beast, not for a pirate."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
 [node name="part7" type="Control" parent="fond" groups=["Tutorial Parts"]]
 visible = false
 texture_filter = 1
@@ -830,10 +830,8 @@ offset_right = 110.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "If more than two pirates are exposed, select the two to discard by touching them while the button is toggled."
+text = "TUTO7"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -933,10 +931,8 @@ offset_right = 109.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "User Interface"
+text = "TUTO8"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -948,22 +944,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -114.0
-offset_right = 89.0
-offset_bottom = -94.0
+offset_left = -58.0
+offset_top = -111.0
+offset_right = 88.0
+offset_bottom = -89.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Hold      to restart your round"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "TUTO8A"
 autowrap_mode = 2
 
-[node name="ResetButton" type="Sprite2D" parent="fond/part8/Label4"]
-position = Vector2(51, 3)
+[node name="ResetButton" type="Sprite2D" parent="fond/part8"]
+position = Vector2(102, 40)
 texture = ExtResource("37_wtqcq")
 
 [node name="Label5" type="Label" parent="fond/part8"]
@@ -973,23 +965,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -60.0
+offset_left = -58.0
 offset_top = -80.0
-offset_right = 79.0
-offset_bottom = -60.0
+offset_right = 88.0
+offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Hold      to exit 
-the game"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "TUTO8B"
 autowrap_mode = 2
 
-[node name="ResetButton" type="Sprite2D" parent="fond/part8/Label5"]
-position = Vector2(61, 3)
+[node name="ResetButton2" type="Sprite2D" parent="fond/part8"]
+position = Vector2(102, 71)
 texture = ExtResource("36_l7u28")
 
 [node name="VolumeButtonToggled" type="Sprite2D" parent="fond/part8"]
@@ -1036,35 +1023,32 @@ value = 0.5
 editable = false
 scrollable = false
 
+[node name="Line2D" type="Line2D" parent="fond/part8/VolumeButtonToggled"]
+position = Vector2(22, -67)
+points = PackedVector2Array(-2, -3, -26, 6)
+width = 1.0
+
+[node name="Line2D2" type="Line2D" parent="fond/part8/VolumeButtonToggled"]
+position = Vector2(22, -67)
+points = PackedVector2Array(-2, 7, -11, 10)
+width = 1.0
+
 [node name="Label2" type="Label" parent="fond/part8/VolumeButtonToggled"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 3.0
+offset_left = 14.0
 offset_top = -94.0
-offset_right = 102.0
+offset_right = 154.0
 offset_bottom = -79.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Sound volume"
-horizontal_alignment = 1
+text = "TUTO8C"
 vertical_alignment = 1
 autowrap_mode = 2
-
-[node name="Line2D" type="Line2D" parent="fond/part8/VolumeButtonToggled/Label2"]
-position = Vector2(10, 11)
-points = PackedVector2Array(-2, -3, -26, 6)
-width = 1.0
-
-[node name="Line2D2" type="Line2D" parent="fond/part8/VolumeButtonToggled/Label2"]
-position = Vector2(10, 11)
-points = PackedVector2Array(-2, 7, -11, 10)
-width = 1.0
 
 [node name="Label3" type="Label" parent="fond/part8/VolumeButtonToggled"]
 anchors_preset = 7
@@ -1072,17 +1056,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 3.0
+offset_left = 14.0
 offset_top = -82.0
-offset_right = 102.0
+offset_right = 154.0
 offset_bottom = -67.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Music Volume"
-horizontal_alignment = 1
+text = "TUTO8D"
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -1095,34 +1076,28 @@ offset_bottom = 150.0
 
 [node name="Label2" type="Label" parent="fond/part10"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -91.0
-offset_top = -133.0
-offset_right = 89.0
-offset_bottom = -110.0
+offset_left = -82.0
+offset_top = 17.0
+offset_right = 88.0
+offset_bottom = 47.0
 grow_horizontal = 2
-grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Hold       to start a new round."
-horizontal_alignment = 1
+text = "TUTO8E"
 autowrap_mode = 2
 
-[node name="+Button" type="Sprite2D" parent="fond/part10/Label2"]
-position = Vector2(60, 2)
+[node name="+Button" type="Sprite2D" parent="fond/part10"]
+position = Vector2(76, 18)
 texture = ExtResource("36_8flxe")
 
-[node name="+ButtonToggled" type="Sprite2D" parent="fond/part10/Label2/+Button"]
+[node name="+ButtonToggled" type="Sprite2D" parent="fond/part10/+Button"]
 visible = false
 modulate = Color(1, 1, 1, 0.678431)
 texture = ExtResource("43_dbpj6")
 
-[node name="TouchIconPixel" type="Sprite2D" parent="fond/part10/Label2/+Button"]
+[node name="TouchIconPixel" type="Sprite2D" parent="fond/part10/+Button"]
 visible = false
 position = Vector2(0, 1)
 texture = ExtResource("21_py1rn")
@@ -1141,10 +1116,8 @@ offset_right = 89.0
 offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Tap twice quickly to open the Seed Edit Panel."
+text = "TUTO8F"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -1173,10 +1146,8 @@ offset_right = 109.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "User Interface"
+text = "TUTO8"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -1200,10 +1171,8 @@ offset_right = 109.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "User Interface"
+text = "TUTO8"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -1237,10 +1206,8 @@ offset_right = 83.008
 offset_bottom = 14.992
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Discards"
+text = "TUTO8G"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -1263,10 +1230,8 @@ offset_right = 80.005
 offset_bottom = 12.01
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Discards"
+text = "TUTO8G"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -1289,10 +1254,8 @@ offset_right = 80.005
 offset_bottom = 12.01
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Discards"
+text = "TUTO8G"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -1317,10 +1280,8 @@ offset_right = 109.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "The Seed Edit Panel shows the seed of the round currently being played and allows the user to enter a new seed for the next round."
+text = "TUTO9"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -1350,7 +1311,7 @@ offset_bottom = 11.0
 theme_override_colors/font_color = Color(0.92549, 0.776471, 0.635294, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_8fc2m")
-text = "Current deal seed"
+text = "SEEDC"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1382,7 +1343,7 @@ offset_bottom = 41.0
 theme_override_colors/font_color = Color(0.92549, 0.776471, 0.635294, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_oekre")
-text = "Next deal seed"
+text = "SEEDN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1397,7 +1358,7 @@ theme_override_colors/caret_color = Color(1, 1, 1, 1)
 theme_override_colors/selection_color = Color(0.388235, 0.286275, 0.27451, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qfqc7")
-placeholder_text = "enter new seed"
+placeholder_text = "SEEDP"
 alignment = 1
 flat = true
 caret_blink = true
@@ -1415,6 +1376,41 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_ljr0g")
 icon = ExtResource("25_t4fa0")
 flat = true
 icon_alignment = 1
+
+[node name="CopyButton" type="TextureButton" parent="fond/part11/SeedEditPanel"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 1.0
+offset_right = 151.0
+offset_bottom = 10.0
+texture_normal = ExtResource("44_tkc3i")
+texture_pressed = ExtResource("45_v3c4c")
+
+[node name="Clear Button" type="Button" parent="fond/part11/SeedEditPanel"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 32.0
+offset_right = 137.0
+offset_bottom = 40.0
+theme_override_colors/icon_normal_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_colors/icon_pressed_color = Color(0.956863, 0.933333, 0.913725, 1)
+theme_override_colors/icon_hover_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_colors/icon_focus_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_prjwy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_360m7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kk52d")
+icon = ExtResource("46_oqavh")
+flat = true
+icon_alignment = 1
+
+[node name="PasteButton" type="TextureButton" parent="fond/part11/SeedEditPanel"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 31.0
+offset_right = 150.0
+offset_bottom = 40.0
+texture_normal = ExtResource("47_avr0y")
+texture_pressed = ExtResource("48_xmo22")
 
 [node name="part12" type="Control" parent="fond" groups=["Tutorial Parts"]]
 visible = false
@@ -1435,10 +1431,8 @@ offset_right = 109.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "A seed is the number used to shuffle the deck. Starting two rounds with the same seed will result in the exact same card deal."
+text = "TUTO10"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -1468,7 +1462,7 @@ offset_bottom = 11.0
 theme_override_colors/font_color = Color(0.92549, 0.776471, 0.635294, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_8fc2m")
-text = "Current deal seed"
+text = "SEEDC"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1500,7 +1494,7 @@ offset_bottom = 41.0
 theme_override_colors/font_color = Color(0.92549, 0.776471, 0.635294, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_oekre")
-text = "Next deal seed"
+text = "SEEDN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1515,7 +1509,7 @@ theme_override_colors/caret_color = Color(1, 1, 1, 1)
 theme_override_colors/selection_color = Color(0.388235, 0.286275, 0.27451, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qfqc7")
-placeholder_text = "enter new seed"
+placeholder_text = "SEEDP"
 alignment = 1
 flat = true
 caret_blink = true
@@ -1534,6 +1528,41 @@ icon = ExtResource("25_t4fa0")
 flat = true
 icon_alignment = 1
 
+[node name="CopyButton" type="TextureButton" parent="fond/part12/SeedEditPanel"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 1.0
+offset_right = 151.0
+offset_bottom = 10.0
+texture_normal = ExtResource("44_tkc3i")
+texture_pressed = ExtResource("45_v3c4c")
+
+[node name="Clear Button" type="Button" parent="fond/part12/SeedEditPanel"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 32.0
+offset_right = 137.0
+offset_bottom = 40.0
+theme_override_colors/icon_normal_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_colors/icon_pressed_color = Color(0.956863, 0.933333, 0.913725, 1)
+theme_override_colors/icon_hover_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_colors/icon_focus_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_prjwy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_360m7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kk52d")
+icon = ExtResource("46_oqavh")
+flat = true
+icon_alignment = 1
+
+[node name="PasteButton" type="TextureButton" parent="fond/part12/SeedEditPanel"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 31.0
+offset_right = 150.0
+offset_bottom = 40.0
+texture_normal = ExtResource("47_avr0y")
+texture_pressed = ExtResource("48_xmo22")
+
 [node name="part13" type="Control" parent="fond" groups=["Tutorial Parts"]]
 visible = false
 layout_mode = 3
@@ -1548,15 +1577,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -109.0
-offset_top = -47.0
+offset_top = -53.0
 offset_right = 109.0
-offset_bottom = -3.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "When starting a new round the \"next deal seed\" entered will be used. If the field is left empty the seed will be randomized."
+text = "TUTO11"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -1594,7 +1621,7 @@ offset_bottom = 11.0
 theme_override_colors/font_color = Color(0.92549, 0.776471, 0.635294, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_8fc2m")
-text = "Current deal seed"
+text = "SEEDC"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1626,7 +1653,7 @@ offset_bottom = 41.0
 theme_override_colors/font_color = Color(0.92549, 0.776471, 0.635294, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_oekre")
-text = "Next deal seed"
+text = "SEEDN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1642,7 +1669,7 @@ theme_override_colors/selection_color = Color(0.388235, 0.286275, 0.27451, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qfqc7")
 text = "02154444445"
-placeholder_text = "enter new seed"
+placeholder_text = "SEEDP"
 alignment = 1
 flat = true
 caret_blink = true
@@ -1660,6 +1687,41 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_ljr0g")
 icon = ExtResource("25_t4fa0")
 flat = true
 icon_alignment = 1
+
+[node name="CopyButton" type="TextureButton" parent="fond/part13/Mask/SeedEditPanel"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 1.0
+offset_right = 151.0
+offset_bottom = 10.0
+texture_normal = ExtResource("44_tkc3i")
+texture_pressed = ExtResource("45_v3c4c")
+
+[node name="Clear Button" type="Button" parent="fond/part13/Mask/SeedEditPanel"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 32.0
+offset_right = 137.0
+offset_bottom = 40.0
+theme_override_colors/icon_normal_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_colors/icon_pressed_color = Color(0.956863, 0.933333, 0.913725, 1)
+theme_override_colors/icon_hover_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_colors/icon_focus_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_prjwy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_360m7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kk52d")
+icon = ExtResource("46_oqavh")
+flat = true
+icon_alignment = 1
+
+[node name="PasteButton" type="TextureButton" parent="fond/part13/Mask/SeedEditPanel"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 31.0
+offset_right = 150.0
+offset_bottom = 40.0
+texture_normal = ExtResource("47_avr0y")
+texture_pressed = ExtResource("48_xmo22")
 
 [node name="+Button" type="Sprite2D" parent="fond/part13"]
 position = Vector2(34, 80)
@@ -1693,10 +1755,8 @@ offset_right = 109.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-auto_translate = false
-localize_numeral_system = false
 theme_override_font_sizes/font_size = 8
-text = "Displayed seeds behave like most texts, for example they can be copied and pasted. "
+text = "TUTO12"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -1726,7 +1786,7 @@ offset_bottom = 11.0
 theme_override_colors/font_color = Color(0.92549, 0.776471, 0.635294, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_8fc2m")
-text = "Current deal seed"
+text = "SEEDC"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1758,7 +1818,7 @@ offset_bottom = 41.0
 theme_override_colors/font_color = Color(0.92549, 0.776471, 0.635294, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_oekre")
-text = "Next deal seed"
+text = "SEEDN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1773,7 +1833,7 @@ theme_override_colors/caret_color = Color(1, 1, 1, 1)
 theme_override_colors/selection_color = Color(0.388235, 0.286275, 0.27451, 1)
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qfqc7")
-placeholder_text = "enter new seed"
+placeholder_text = "SEEDP"
 alignment = 1
 flat = true
 caret_blink = true
@@ -1791,6 +1851,41 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_ljr0g")
 icon = ExtResource("25_t4fa0")
 flat = true
 icon_alignment = 1
+
+[node name="CopyButton" type="TextureButton" parent="fond/part14/SeedEditPanel"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 1.0
+offset_right = 151.0
+offset_bottom = 10.0
+texture_normal = ExtResource("44_tkc3i")
+texture_pressed = ExtResource("45_v3c4c")
+
+[node name="Clear Button" type="Button" parent="fond/part14/SeedEditPanel"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 32.0
+offset_right = 137.0
+offset_bottom = 40.0
+theme_override_colors/icon_normal_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_colors/icon_pressed_color = Color(0.956863, 0.933333, 0.913725, 1)
+theme_override_colors/icon_hover_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_colors/icon_focus_color = Color(0.92549, 0.776471, 0.635294, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_prjwy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_360m7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kk52d")
+icon = ExtResource("46_oqavh")
+flat = true
+icon_alignment = 1
+
+[node name="PasteButton" type="TextureButton" parent="fond/part14/SeedEditPanel"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 31.0
+offset_right = 150.0
+offset_bottom = 40.0
+texture_normal = ExtResource("47_avr0y")
+texture_pressed = ExtResource("48_xmo22")
 
 [node name="Previous button" type="TextureButton" parent="fond"]
 layout_mode = 0

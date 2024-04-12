@@ -56,7 +56,9 @@ var _win_count : int
 var _sfx_volume : float = 0.5
 var _music_volume : float = 0.5
 
-var _move_amount := 10
+#var _move_amount := -1
+
+
 
 func _ready():
 	
@@ -375,7 +377,7 @@ func _drop_stack(drop_pos : Vector2):
 
 func _update_board_state():
 	_disable_input()
-	_increase_move_amount()
+	#_increase_move_amount()
 	_discard_available_cards()
 
 func _finish_update_board_state():
@@ -397,7 +399,7 @@ func _finish_update_board_state():
 
 func _discard_available_cards(discarded_cards : int = 0):
 	
-	var initial_key = _game_scene._game_key
+	
 	var check_left = false
 	
 	var discards = discarded_cards
@@ -436,8 +438,7 @@ func _discard_available_cards(discarded_cards : int = 0):
 			check_left = true
 			
 	
-	if initial_key != _game_scene._game_key :
-		return
+	
 	
 	if check_left:
 		_discard_available_cards(discards)
@@ -714,6 +715,7 @@ func _disable_input():
 	_can_play = false
 
 func _has_won() -> bool:
+	
 	for stack in _card_stacks:
 		if not stack.is_empty():
 			return false
@@ -752,7 +754,7 @@ func _reset_board_data():
 	_game_scene._mobydick_button.modulate = Color.WHITE
 	_game_scene._kraken_button.modulate = Color.WHITE
 	
-	_move_amount = -1
+	#_move_amount = -1
 	
 func _add_stack_slot(slot: Slot):
 	_card_stacks.push_back([])
@@ -765,7 +767,8 @@ func _add_garbage_slot(slot: Slot):
 	_garbage_slots.push_back(slot)
 
 func _increase_move_amount():
-	_move_amount += 1
+	pass
+	#_move_amount += 1
 
 func _on_beast_button_pressed(button):
 	var toggled_button = _beasts_button_group.get_pressed_button()

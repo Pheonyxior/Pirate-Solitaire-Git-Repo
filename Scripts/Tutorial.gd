@@ -6,8 +6,11 @@ var _index := 0
 
 func _ready():
 	var parts = get_tree().get_nodes_in_group("Tutorial Parts")
-	for part in parts:
-		_tutorial_parts.push_back(part)
+	parts[0].visible = true
+	_tutorial_parts.push_back(parts[0])
+	for i in range(1,parts.size()):
+		parts[i].visible = false
+		_tutorial_parts.push_back(parts[i])
 
 
 
